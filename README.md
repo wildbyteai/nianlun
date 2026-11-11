@@ -1,5 +1,7 @@
 # 年轮 · Nianlun (Tree Rings)
 
+**[Play in your browser · 在线试玩](https://bytewatcher.xyz/games/nianlun/)**
+
 An offline HTML5 life-simulation game that turns each year of a fictional life into a new tree ring. Birthplace, birth year, historical context and player choices shape the story.
 
 The game interface is in Chinese and is designed for portrait screens. Desktop browsers display the same game in a centered column.
