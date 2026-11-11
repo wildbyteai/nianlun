@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#F1E8D4">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="随机落在世界某处，按真实统计长完一生。">
+<title>年轮</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="no-select">
+<div id="app">
+
+  <!-- 标题 -->
+  <section class="scr" id="s-title" aria-label="年轮">
+    <div class="bar">
+      <button class="icon-btn" data-act="about" aria-label="关于数据"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg></button>
+      <button class="icon-btn snd" data-act="sound" aria-label="声音"></button>
+    </div>
+    <div class="title-wrap">
+      <div class="logo" id="logo"></div>
+      <div class="title-disc"><canvas id="title-disc" aria-hidden="true"></canvas></div>
+      <p class="tagline">换个地方出生，<br>人生会有什么不同？</p>
+      <p class="tagline-sub" id="tagline-sub">给现在 36 岁的你：从 1990 年重来一遍。</p>
+      <div class="cohort" id="cohort">
+        <span class="cohort-lb">出生年份</span>
+        <div class="cohort-chips" id="cohort-chips"></div>
+        <span class="cohort-age" id="cohort-age"></span>
+      </div>
+    </div>
+    <div class="title-actions">
+      <button class="btn" data-act="start">落　地</button>
+      <button class="btn ghost" data-act="forest" id="btn-forest">我的林子</button>
+    </div>
+    <div class="title-foot">数据：世界银行 WDI · Natural Earth　<button data-act="about">数据与方法</button></div>
+  </section>
+
+  <!-- 落地 -->
+  <section class="scr" id="s-drop" aria-label="落地">
+    <div class="bar">
+      <button class="icon-btn" data-act="home" aria-label="返回"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <div class="grow"></div>
+      <button class="icon-btn snd" data-act="sound" aria-label="声音"></button>
+    </div>
+    <div class="drop-head">
+      <h2>此刻，每秒约有 <span id="bps">4</span> 个婴儿出生</h2>
+      <p>今天到现在，大约已经出生了 <span class="ticker" id="ticker">0</span> 人。<br>地图上每闪一下，就是一个。</p>
+    </div>
+    <div class="map-wrap">
+      <canvas id="map"></canvas>
+      <div class="land-label" id="land-label"><div class="nm" id="land-nm"></div><div class="sub" id="land-sub"></div></div>
+      <div class="stamp" id="stamp-land"></div>
+    </div>
+    <div class="drop-foot">
+      <button class="hold" id="hold" aria-label="按住起风，松手落地">
+        <svg class="prog" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="56" id="hold-ring" stroke-dasharray="352" stroke-dashoffset="352"/></svg>
+        <span>按住<br>起风</span>
+      </button>
+      <div class="drop-hint" id="drop-hint">按住按钮起风，松手落地。</div>
+    </div>
+  </section>
+
+  <!-- 出生 -->
+  <section class="scr" id="s-birth" aria-label="出生">
+    <div class="bar">
+      <div class="grow"></div>
+      <button class="icon-btn snd" data-act="sound" aria-label="声音"></button>
+    </div>
+    <div class="print" id="birth-print"><div class="layer" id="birth-land"></div><div class="layer city" id="birth-city"></div></div>
+    <div class="birth-name"><small id="birth-year">1990 年，你落在了</small><b id="birth-country"></b></div>
+    <div class="tags" id="birth-tags"></div>
+    <ul class="facts" id="birth-facts"></ul>
+    <p class="birth-note" id="birth-note"></p>
+    <div class="stats" id="birth-stats"></div>
+    <p class="howto">根、枝、叶、实随年景起落。每过几年可把 3 滴养分分给它们；遇到岔路，左右滑动卡片选择。</p>
+    <div class="birth-cta"><button class="btn" data-act="sprout">发　芽</button></div>
+  </section>
+
+  <!-- 一生 -->
+  <section class="scr" id="s-life" aria-label="一生">
+    <div class="life-head">
+      <div class="where" id="life-where"></div>
+      <div class="age"><b id="life-age">0</b><span>岁</span><small id="life-year">1990 年</small></div>
+    </div>
+    <div class="life-tools">
+      <button class="chip-btn" data-act="pause" id="btn-pause" aria-label="暂停">暂停</button>
+      <button class="chip-btn" data-act="speed" id="btn-speed" aria-label="速度">1×</button>
+      <div class="sp"></div>
+      <button class="chip-btn" data-act="log" aria-label="年谱">年谱</button>
+      <button class="icon-btn snd" data-act="sound" aria-label="声音"></button>
+    </div>
+    <div class="era-strip" id="life-era" aria-live="off" aria-label="这一年的世界线，可上下滚动回看往年"></div>
+    <div class="disc-wrap" id="life-disc-wrap"><canvas id="life-disc" aria-label="年轮"></canvas></div>
+    <div class="stats" id="life-stats"></div>
+    <div class="life-cards" id="cards"></div>
+  </section>
+
+  <!-- 终章 -->
+  <section class="scr dark" id="s-end" aria-label="终章">
+    <div class="bar">
+      <div class="grow"></div>
+      <button class="icon-btn snd" data-act="sound" aria-label="声音"></button>
+    </div>
+    <div class="end-top">
+      <div class="k" id="end-k"></div>
+      <div class="big"><b id="end-age">0</b><span>岁</span></div>
+      <div class="cause" id="end-cause"></div>
+      <div class="line" id="end-line"></div>
+    </div>
+    <div class="end-disc" id="end-disc-wrap"><canvas id="end-disc" aria-label="这一生的年轮，手指从圆心往外划，回看每一年"></canvas></div>
+    <div class="end-scrub-hint">手指从圆心往外划，回看每一年</div>
+    <div class="year-box" id="year-box" aria-live="polite"><div class="y" id="yb-y"></div><div id="yb-t"></div></div>
+    <p class="end-compare" id="end-compare"></p>
+    <div class="end-actions">
+      <button class="btn" data-act="play">▶　放一遍这一生</button>
+      <div class="btn-row">
+        <button class="btn ghost" data-act="comps">另外四粒种子</button>
+        <button class="btn ghost" data-act="poster">做年轮卡</button>
+      </div>
+      <div class="btn-row">
+        <button class="btn ghost" data-act="again">再落一次</button>
+        <button class="btn ghost" data-act="replay">再长一次</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 同一阵风 -->
+  <section class="scr" id="s-comps" aria-label="同一阵风">
+    <div class="bar">
+      <button class="icon-btn" data-act="back-end" aria-label="返回"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <div class="grow"></div>
+    </div>
+    <div class="comps-head"><h2>同一阵风，五粒种子</h2><p id="comps-sub">和你同一秒落地的另外四个人，各自长成了这样。</p></div>
+    <div class="ages" id="ages"></div>
+    <div class="comp-grid" id="comp-grid"></div>
+    <div class="comps-actions">
+      <button class="btn" data-act="poster">做一张年轮卡</button>
+      <button class="btn ghost" data-act="again">再落一次</button>
+    </div>
+  </section>
+
+  <!-- 海报 -->
+  <section class="scr" id="s-poster" aria-label="年轮卡">
+    <div class="bar">
+      <button class="icon-btn" data-act="back-end" aria-label="返回"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <div class="grow"></div>
+    </div>
+    <div class="poster-img" id="poster-img"></div>
+    <p class="poster-tip">长按图片保存，或点下面的按钮</p>
+    <div class="btn-row"><button class="btn" data-act="save">保存图片</button><button class="btn ghost" data-act="again">再落一次</button></div>
+  </section>
+</div>
+
+<div class="veil" id="veil" data-act="close"></div>
+
+<div class="sheet" id="sh-about" role="dialog" aria-label="数据与方法">
+  <div class="grab"></div>
+  <h3>数据与方法 <button class="icon-btn" data-act="close" aria-label="关闭"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></h3>
+  <div class="body" id="about-body"></div>
+</div>
+
+<div class="sheet" id="sh-log" role="dialog" aria-label="年谱">
+  <div class="grab"></div>
+  <h3>年谱 <button class="icon-btn" data-act="close" aria-label="关闭"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></h3>
+  <div class="body"><p class="log-legend" id="log-legend"></p><ul class="log-list" id="log-list"></ul></div>
+</div>
+
+<div class="sheet" id="sh-forest" role="dialog" aria-label="我的林子">
+  <div class="grab"></div>
+  <h3>我的林子 <button class="icon-btn" data-act="close" aria-label="关闭"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></h3>
+  <div class="body"><ul class="forest" id="forest"></ul></div>
+</div>
+
+<div class="sheet" id="sh-comp" role="dialog" aria-label="另一粒种子">
+  <div class="grab"></div>
+  <h3><span id="comp-title"></span> <button class="icon-btn" data-act="close" aria-label="关闭"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></h3>
+  <div class="body" id="comp-body"></div>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="gen/data.js"></script>
+<script src="gen/cal.js"></script>
+<script src="gen/art.js"></script>
+<script src="engine.js"></script>
+<script src="gen/profiles.js"></script>
+<script src="profiles.js"></script>
+<script src="culture.js"></script>
+<script src="events.js"></script>
+<script src="tags.js"></script>
+<script src="events_world.js"></script>
+<script src="events_world2.js"></script>
+<script src="events_world3.js"></script>
+<script src="events_era.js"></script>
+<script src="events_country.js"></script>
+<script src="events_country2.js"></script>
+<script src="events_profiles.js"></script>
+<script src="gen/history.js"></script>
+<script src="era.js"></script>
+<script src="timeline.js"></script>
+<script src="svgdraw.js"></script>
+<script src="rings.js"></script>
+<script src="map.js"></script>
+<script src="audio.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

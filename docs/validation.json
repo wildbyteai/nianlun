@@ -1,0 +1,44 @@
+{
+  "checked": "2026-11-11",
+  "kind": "local browser simulations and Node.js checks; not physical-device acceptance",
+  "cursorContribution": {
+    "tool": "Cursor Desktop",
+    "version": "3.29.15",
+    "scope": "Accessible names for pause/resume and playback-speed controls in an existing game",
+    "targetedChecksPassed": 9,
+    "targetedCheckExitCode": 0,
+    "checks": [
+      "initial pause name",
+      "initial speed name",
+      "paused name",
+      "resume name",
+      "1x-2x-4x-1x cycle",
+      "pre-reset state setup",
+      "new-game initialization",
+      "40x demo initialization",
+      "built-page pause name"
+    ]
+  },
+  "browserViewports": [
+    "360x800",
+    "390x844",
+    "430x932"
+  ],
+  "independentExport": {
+    "nodeVersion": "v26.3.1",
+    "buildCommand": "npm run build",
+    "buildExitCode": 0,
+    "simulationCommand": "npm test",
+    "simulationPassed": 17,
+    "simulationFailed": 0,
+    "simulationExitCode": 0,
+    "buildMatchesValidatedGame": true
+  },
+  "sourceSHA256": "42547af1fdd20ca71c34335adb511e37cc3841c6c6aa07c6dbafacda62fe323a",
+  "bundleSHA256": "1cdf2ef4029ef36b33815e2b091c4cdc1f4f9d65e4f940c8bae3c30ee506df8e",
+  "notTested": [
+    "physical phones",
+    "VoiceOver",
+    "TalkBack"
+  ]
+}

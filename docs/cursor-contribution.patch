@@ -1,0 +1,48 @@
+--- before/src/app.js
++++ src/app.js
+@@ -107,6 +107,19 @@
+     const on = Snd.on;
+     const svg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h3.5L12 18V6L7.5 10z" fill="currentColor"/>' + (on ? '<path d="M15.5 9a4 4 0 010 6M18 6.5a8 8 0 010 11"/>' : '<path d="M16 9.5l5 5M21 9.5l-5 5"/>') + '</svg>';
+     $$('.snd').forEach((b) => { b.innerHTML = svg; b.setAttribute('aria-label', on ? '关闭声音' : '打开声音'); });
++  }
++  // 静态 aria-label 会盖住按钮文字，名称必须跟当前操作和倍速一起改。
++  function setPauseName() {
++    const name = G.paused ? '继续' : '暂停';
++    const btn = $('#btn-pause');
++    btn.textContent = name;
++    btn.setAttribute('aria-label', name);
++  }
++  function setSpeedName() {
++    const shown = G.speed + '×';
++    const btn = $('#btn-speed');
++    btn.textContent = shown;
++    btn.setAttribute('aria-label', '速度 ' + shown);
+   }
+ 
+   // ---------- 四项状态 ----------
+@@ -365,8 +378,8 @@
+     const S = G.S;
+     G.mode = 'life';
+     G.speed = AUTO ? 40 : 1; G.paused = false; G.pending = false; G.read = 0; G.quietN = 0; G.nowDone = false;
+-    $('#btn-speed').textContent = G.speed + '×';
+-    $('#btn-pause').textContent = '暂停'; $('#btn-pause').classList.remove('on');
++    setSpeedName();
++    setPauseName(); $('#btn-pause').classList.remove('on');
+     buildStats($('#life-stats'));
+     show('life');
+     if (!G.disc) G.disc = new window.RingDisc($('#life-disc'), { ref: 90, curve: 0.62, pad: 4 });
+@@ -981,12 +994,12 @@
+     sprout() { Snd.unlock(); enterLife(); },
+     pause() {
+       G.paused = !G.paused;
+-      $('#btn-pause').textContent = G.paused ? '继续' : '暂停';
++      setPauseName();
+       $('#btn-pause').classList.toggle('on', G.paused);
+     },
+     speed() {
+       G.speed = G.speed === 1 ? 2 : G.speed === 2 ? 4 : 1;
+-      $('#btn-speed').textContent = G.speed + '×';
++      setSpeedName();
+     },
+     log: openLog,
+     close: closeSheet,

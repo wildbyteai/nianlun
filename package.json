@@ -1,0 +1,14 @@
+{
+  "name": "nianlun-life-h5",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Nianlun (Tree Rings): an offline HTML5 life-simulation game",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "test": "node tools/verify_world.mjs 600",
+    "test:sim": "node tools/verify_sim.mjs 3000",
+    "test:country": "node tools/verify_country.mjs",
+    "test:country2": "node tools/verify_country2.mjs"
+  }
+}

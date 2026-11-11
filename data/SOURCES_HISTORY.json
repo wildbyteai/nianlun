@@ -1,0 +1,246 @@
+{
+ "generated_at": "2026-11-10T02:39:24.603Z",
+ "indicators": {
+  "le": "SP.DYN.LE00.IN",
+  "im": "SP.DYN.IMRT.IN",
+  "u5": "SH.DYN.MORT",
+  "ppp": "NY.GDP.PCAP.PP.CD",
+  "urb": "SP.URB.TOTL.IN.ZS",
+  "ele": "EG.ELC.ACCS.ZS",
+  "net": "IT.NET.USER.ZS",
+  "pop": "SP.POP.TOTL",
+  "cbr": "SP.DYN.CBRT.IN"
+ },
+ "ranges": [
+  [
+   1960,
+   1980
+  ],
+  [
+   1981,
+   2000
+  ],
+  [
+   2001,
+   2025
+  ]
+ ],
+ "sources": [
+  {
+   "label": "le:1960-1980",
+   "url": "https://api.worldbank.org/v2/country/all/indicator/SP.DYN.LE00.IN?format=json&date=1960:1980&per_page=20000",
+   "file": "data/worldbank/ts/SP.DYN.LE00.IN.1960-1980.json",
+   "bytes": 1275690,
+   "sha256": "01d23bd35f4747540cf8d6ddfa7fc628459c341b4b400ffccb6d8fa7e06a6578",
+   "fetched_at": "2026-11-10T02:38:11.543Z"
+  },
+  {
+   "label": "le:1981-2000",
+   "url": "https://api.worldbank.org/v2/country/all/indicator/SP.DYN.LE00.IN?format=json&date=1981:2000&per_page=20000",
+   "file": "data/worldbank/ts/SP.DYN.LE00.IN.1981-2000.json",
+   "bytes": 1214834,
+   "sha256": "d2244e4481362992aef69c35e3dd181a1fe9e2e5c45aa9acf7fb2bc0fa87993e",
+   "fetched_at": "2026-11-10T02:38:12.768Z"
+  },
+  {
+   "label": "le:2001-2025",
+   "url": "https://api.worldbank.org/v2/country/all/indicator/SP.DYN.LE00.IN?format=json&date=2001:2025&per_page=20000",
+   "file": "data/worldbank/ts/SP.DYN.LE00.IN.2001-2025.json",
+   "bytes": 1516799,
+   "sha256": "60e537e7a221fade3758a5c8149fce8c6a11884eb41ce0f0e3c52af5c3f1e065",
+   "fetched_at": "2026-11-10T02:38:13.870Z"
+  },
+  {
+   "label": "im:1960-1980",
+   "url": "https://api.worldbank.org/v2/country/all/indicator/SP.DYN.IMRT.IN?format=json&date=1960:1980&per_page=20000",
+   "file": "data/worldbank/ts/SP.DYN.IMRT.IN.1960-1980.json",
+   "bytes": 1283403,
+   "sha256": "9cd737b47d3ed37f0d2c024a73027b2531b5c704587ab249aa9f4357c968b511",
+   "fetched_at": "2026-11-10T02:38:14.842Z"
+  },
+  {
+   "label": "im:1981-2000",
+   "url": "https://api.worldbank.org/v2/country/all/indicator/SP.DYN.IMRT.IN?format=json&date=1981:2000&per_page=20000",
+   "file": "data/worldbank/ts/SP.DYN.IMRT.IN.1981-2000.json",
+   "bytes": 1225747,
+   "sha256": "b82243d144aa69d98c0f102900ed326901a1afd7693b8d3b220b49b234bc534f",
+   "fetched_at": "2026-11-10T02:38:15.845Z"
+  },
+  {
+   "label": "im:2001-2025",
+   "url": "https://api.worldbank.org/v2/country/all/indicator/SP.DYN.IMRT.IN?format=json&date=2001:2025&per_page=20000",
+   "file": "data/worldbank/ts/SP.DYN.IMRT.IN.2001-2025.json",
+   "bytes": 1534894,
+   "sha256": "7456f43312fc4f1f9627bd2966e13e44257d4b7f836267f169791e1459a82c85",
+   "fetched_at": "2026-11-10T02:38:16.877Z"
+  },
+  {
+   "label": "u5:1960-1980",
+   "url": "https://api.worldbank.org/v2/country/all/indicator/SH.DYN.MORT?format=json&date=1960:1980&per_page=20000",
+   "file": "data/worldbank/ts/SH.DYN.MORT.1960-1980.json",
+   "bytes": 1272623,
+   "sha256": "a1e0676de125ecb65ffaafbb1a334d328b59adfbb02e04d6167178ec1de5f637",
+   "fetched_at": "2026-11-10T02:38:17.863Z"
+  },
+  {
+   "label": "u5:1981-2000",
+   "url": "https://api.worldbank.org/v2/country/all/indicator/SH.DYN.MORT?format=json&date=1981:2000&per_page=20000",
+   "file": "data/worldbank/ts/SH.DYN.MORT.1981-2000.json",
+   "bytes": 1215794,
+   "sha256": "20a4f5adbc6a351b789c66f976503178c3dc0bd8d45972e4854fbb3025fd8f0d",
+   "fetched_at": "2026-11-10T02:38:19.943Z"
+  },
+  {
+   "label": "u5:2001-2025",
+   "url": "https://api.worldbank.org/v2/country/all/indicator/SH.DYN.MORT?format=json&date=2001:2025&per_page=20000",
+   "file": "data/worldbank/ts/SH.DYN.MORT.2001-2025.json",
+   "bytes": 1522221,
+   "sha256": "11096af37658b69f12fcadbb575c43d0bb21c7540e70156496451aec948377dd",
+   "fetched_at": "2026-11-10T02:38:22.168Z"
+  },
+  {
+   "label": "ppp:1960-1980",
+   "url": "https://api.worldbank.org/v2/country/all/indicator/NY.GDP.PCAP.PP.CD?format=json&date=1960:1980&per_page=20000",
+   "file": "data/worldbank/ts/NY.GDP.PCAP.PP.CD.1960-1980.json",
+   "bytes": 1294095,
+   "sha256": "ab8503979499d6a2824f1ef24c9438632b0a212e55212c94f6ef9a80aaba6922",
+   "fetched_at": "2026-11-10T02:38:24.128Z"
+  },
+  {
+   "label": "ppp:1981-2000",
+   "url": "https://api.worldbank.org/v2/country/all/indicator/NY.GDP.PCAP.PP.CD?format=json&date=1981:2000&per_page=20000",
+   "file": "data/worldbank/ts/NY.GDP.PCAP.PP.CD.1981-2000.json",
+   "bytes": 1263492,
+   "sha256": "5c7481100963e7e99c83002b96a6ebaf00300f5fb7c15bb98fc5d82cd13035e4",
+   "fetched_at": "2026-11-10T02:38:25.046Z"
+  },
+  {
+   "label": "ppp:2001-2025",
+   "url": "https://api.worldbank.org/v2/country/all/indicator/NY.GDP.PCAP.PP.CD?format=json&date=2001:2025&per_page=20000",
+   "file": "data/worldbank/ts/NY.GDP.PCAP.PP.CD.2001-2025.json",
+   "bytes": 1613321,
+   "sha256": "0c528dfffb81e4dba84a3c607cf16b842de41c71009372fc34b0211f4115b52b",
+   "fetched_at": "2026-11-10T02:38:26.248Z"
+  },
+  {
+   "label": "urb:1960-1980",
+   "url": "https://api.worldbank.org/v2/country/all/indicator/SP.URB.TOTL.IN.ZS?format=json&date=1960:1980&per_page=20000",
+   "file": "data/worldbank/ts/SP.URB.TOTL.IN.ZS.1960-1980.json",
+   "bytes": 1330076,
+   "sha256": "feb96aa6a1f2fb95056b2a4b729b5868462e81a93180d12b5d8b0815174eccfe",
+   "fetched_at": "2026-11-10T02:38:28.377Z"
+  },
+  {
+   "label": "urb:1981-2000",
+   "url": "https://api.worldbank.org/v2/country/all/indicator/SP.URB.TOTL.IN.ZS?format=json&date=1981:2000&per_page=20000",
+   "file": "data/worldbank/ts/SP.URB.TOTL.IN.ZS.1981-2000.json",
+   "bytes": 1266617,
+   "sha256": "8d07d17d28fe9e6ed3cf72c132b42eca6a486dc460d41842392cfceffa29d4aa",
+   "fetched_at": "2026-11-10T02:38:30.543Z"
+  },
+  {
+   "label": "urb:2001-2025",
+   "url": "https://api.worldbank.org/v2/country/all/indicator/SP.URB.TOTL.IN.ZS?format=json&date=2001:2025&per_page=20000",
+   "file": "data/worldbank/ts/SP.URB.TOTL.IN.ZS.2001-2025.json",
+   "bytes": 1582301,
+   "sha256": "b8fbe272850cf882cd6397321817ae804cf798b60a31ef1f8c859050082b6028",
+   "fetched_at": "2026-11-10T02:39:08.988Z"
+  },
+  {
+   "label": "ele:1960-1980",
+   "url": "https://api.worldbank.org/v2/country/all/indicator/EG.ELC.ACCS.ZS?format=json&date=1960:1980&per_page=20000",
+   "file": "data/worldbank/ts/EG.ELC.ACCS.ZS.1960-1980.json",
+   "bytes": 1243821,
+   "sha256": "0ae85342260b0f11ed4751ca204859ed5687e6228eb9a67246c7cdb417df44ff",
+   "fetched_at": "2026-11-10T02:39:09.907Z"
+  },
+  {
+   "label": "ele:1981-2000",
+   "url": "https://api.worldbank.org/v2/country/all/indicator/EG.ELC.ACCS.ZS?format=json&date=1981:2000&per_page=20000",
+   "file": "data/worldbank/ts/EG.ELC.ACCS.ZS.1981-2000.json",
+   "bytes": 1191220,
+   "sha256": "d4467719a12f4a788b91afa83431043a79d124c9810efdc5437644497a42e002",
+   "fetched_at": "2026-11-10T02:39:11.794Z"
+  },
+  {
+   "label": "ele:2001-2025",
+   "url": "https://api.worldbank.org/v2/country/all/indicator/EG.ELC.ACCS.ZS?format=json&date=2001:2025&per_page=20000",
+   "file": "data/worldbank/ts/EG.ELC.ACCS.ZS.2001-2025.json",
+   "bytes": 1490950,
+   "sha256": "6670ab9cf4154b28991037ebb2f1f7961ba1ea9390872339bc19fb94bade8170",
+   "fetched_at": "2026-11-10T02:39:12.838Z"
+  },
+  {
+   "label": "net:1960-1980",
+   "url": "https://api.worldbank.org/v2/country/all/indicator/IT.NET.USER.ZS?format=json&date=1960:1980&per_page=20000",
+   "file": "data/worldbank/ts/IT.NET.USER.ZS.1960-1980.json",
+   "bytes": 1294095,
+   "sha256": "ec7b019ef7df6a791279cc4121a9ee1a1f8ebae74b943ef8d56b89fdf2b53500",
+   "fetched_at": "2026-11-10T02:39:13.957Z"
+  },
+  {
+   "label": "net:1981-2000",
+   "url": "https://api.worldbank.org/v2/country/all/indicator/IT.NET.USER.ZS?format=json&date=1981:2000&per_page=20000",
+   "file": "data/worldbank/ts/IT.NET.USER.ZS.1981-2000.json",
+   "bytes": 1235152,
+   "sha256": "8f6d591a5fe0293fb5283f6d98e5b9d961b9159f95cd761ead13d7d95ac1be98",
+   "fetched_at": "2026-11-10T02:39:14.944Z"
+  },
+  {
+   "label": "net:2001-2025",
+   "url": "https://api.worldbank.org/v2/country/all/indicator/IT.NET.USER.ZS?format=json&date=2001:2025&per_page=20000",
+   "file": "data/worldbank/ts/IT.NET.USER.ZS.2001-2025.json",
+   "bytes": 1570109,
+   "sha256": "145b77ee22b62946d231f4dee3c606cfdd7a46d05a94206513a0de7c8d289b00",
+   "fetched_at": "2026-11-10T02:39:15.977Z"
+  },
+  {
+   "label": "pop:1960-1980",
+   "url": "https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?format=json&date=1960:1980&per_page=20000",
+   "file": "data/worldbank/ts/SP.POP.TOTL.1960-1980.json",
+   "bytes": 1121623,
+   "sha256": "68341e8b75922e83ab7a041bb2c1f92d12a47738d4df699e40c1f4fb747fcf7f",
+   "fetched_at": "2026-11-10T02:39:16.914Z"
+  },
+  {
+   "label": "pop:1981-2000",
+   "url": "https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?format=json&date=1981:2000&per_page=20000",
+   "file": "data/worldbank/ts/SP.POP.TOTL.1981-2000.json",
+   "bytes": 1069226,
+   "sha256": "e14ff55322ec57cde0f2fcbaf623d99dcebce98bb158afcd11311cdef876d401",
+   "fetched_at": "2026-11-10T02:39:19.112Z"
+  },
+  {
+   "label": "pop:2001-2025",
+   "url": "https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?format=json&date=2001:2025&per_page=20000",
+   "file": "data/worldbank/ts/SP.POP.TOTL.2001-2025.json",
+   "bytes": 1337540,
+   "sha256": "e8d27c22fe6280428a6274665add1cbcee4dbc61ccfab8ca7e678d660e57a993",
+   "fetched_at": "2026-11-10T02:39:21.279Z"
+  },
+  {
+   "label": "cbr:1960-1980",
+   "url": "https://api.worldbank.org/v2/country/all/indicator/SP.DYN.CBRT.IN?format=json&date=1960:1980&per_page=20000",
+   "file": "data/worldbank/ts/SP.DYN.CBRT.IN.1960-1980.json",
+   "bytes": 1245615,
+   "sha256": "690cd1be9a81d5f8be430d824f4195a1e16c67a45e8af51d86c482455b6affea",
+   "fetched_at": "2026-11-10T02:39:22.314Z"
+  },
+  {
+   "label": "cbr:1981-2000",
+   "url": "https://api.worldbank.org/v2/country/all/indicator/SP.DYN.CBRT.IN?format=json&date=1981:2000&per_page=20000",
+   "file": "data/worldbank/ts/SP.DYN.CBRT.IN.1981-2000.json",
+   "bytes": 1185886,
+   "sha256": "992546b4162c91cd587d1d00275434b98b32198bd5c8c99b43cdfe1456c3cd17",
+   "fetched_at": "2026-11-10T02:39:23.297Z"
+  },
+  {
+   "label": "cbr:2001-2025",
+   "url": "https://api.worldbank.org/v2/country/all/indicator/SP.DYN.CBRT.IN?format=json&date=2001:2025&per_page=20000",
+   "file": "data/worldbank/ts/SP.DYN.CBRT.IN.2001-2025.json",
+   "bytes": 1480727,
+   "sha256": "8189a1f6a03794d8b6677e76f9cd1928eacb825691a51cfaa9699ceb17fb5359",
+   "fetched_at": "2026-11-10T02:39:24.401Z"
+  }
+ ]
+}
