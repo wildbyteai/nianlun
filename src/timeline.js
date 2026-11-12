@@ -2,8 +2,8 @@
  *
  * 输入：出生／定居的国家 + 年份。输出：那一年的真实统计与年代注脚。
  * 数据来自 src/gen/history.js（世界银行 WDI 逐年时间序列）与 src/era.js（史实短句）。
- * 这一层只读，不改模拟引擎的随机序列、事件概率与死亡校准。
- * 引擎仍以「今天的医疗水平」推演寿命，所以出生卡的年份数据与生命表口径分开标注。
+ * 展示层只读；source-native.js 读取 source-history.js 的历史统计结算，
+ * history_impacts.js 为有明确年份依据的条目补充实际经历；缺来源配置的地点保留旧模型。
  */
 (function (root) {
   'use strict';
@@ -19,39 +19,42 @@
   }
 
   const Y0 = H.y0, Y1 = H.y1, F = H.f;
-  const cacheC = {}, cacheR = {};
+  const cacheC = {}, cacheR = {}, cacheQ = {};
   function parse(s) {
     return s.split('|').map((a) => a.split(',').map((v) => v === '' ? null : +v));
   }
   function seriesOf(id, reg) {
     if (cacheC[id] === undefined) cacheC[id] = H.d[id] ? parse(H.d[id]) : null;
     if (cacheR[reg] === undefined) cacheR[reg] = H.r[reg] ? parse(H.r[reg]) : null;
-    return { c: cacheC[id], r: cacheR[reg] };
+    if (cacheQ[id] === undefined) cacheQ[id] = H.quality[id]?.split('|') || null;
+    return { c: cacheC[id], r: cacheR[reg], q: cacheQ[id] };
   }
   // 2026 年（今天）还没有 WDI 年终值，沿用 2025；2027 起才叫「往后」
   const inRange = (y) => y >= Y0 && y <= NOW_YEAR;
 
-  // 取某国某年的 9 项指标；缺数回退到同地区同年中位数，再回退到最近可得年份
+  // 本国当年资料；基础健康与城镇化可用同年地区估计，生活统计缺项保持缺失。
   function at(id, reg, year) {
     if (!inRange(year)) return null;
-    const i = Math.min(year, Y1) - Y0, { c, r } = seriesOf(id, reg), out = {};
+    const i = Math.min(year, Y1) - Y0, { c, r, q } = seriesOf(id, reg), out = {_quality:{},_sourceYear:{},_est:false};
     for (let k = 0; k < F.length; k++) {
       let v = c && c[k] ? c[k][i] : null;
-      let est = v == null;
-      if (v == null && r && r[k]) v = r[k][i];
-      if (v == null && c && c[k]) {
-        for (let j = i; j >= 0; j--) if (c[k][j] != null) { v = c[k][j]; break; }
-        if (v == null) for (let j = i + 1; j <= Y1 - Y0; j++) if (c[k][j] != null) { v = c[k][j]; break; }
+      let code = q?.[k]?.[i] || '-';
+      if (v == null && ['le','im','u5','urb'].includes(F[k]) && r?.[k]?.[i] != null) {v=r[k][i];code='r';}
+      let sourceYear=v==null?null:Y0+i;
+      if(code==='c'){
+        for(let j=i-1;j>=0;j--)if(q[k][j]==='o'){sourceYear=Y0+j;break;}
       }
       out[F[k]] = v;
-      out._est = out._est || est;
+      out._quality[F[k]] = v==null?'missing':year>Y1?'carried':code==='r'?'region_estimate':H.methods[code];
+      out._sourceYear[F[k]]=sourceYear;
+      out._est = out._est || out._quality[F[k]]!=='observed';
     }
     out.year = year; out.id = id;
     return out;
   }
 
   // 用当年各国「人口 × 粗出生率」重算出生占比，而不是沿用今天的人口结构
-  const shareCache = {};
+  const shareCache = {}, birthCountCache = {};
   function birthShare(id, year) {
     const key = String(year);
     if (shareCache[key]) return shareCache[key][id] || null;
@@ -60,16 +63,20 @@
     let sum = 0;
     for (const c of cs) {
       const h = at(c.id, c.reg, year);
-      const pop = h && h.pop != null ? h.pop : c.pop / 1e6;
-      const cbr = h && h.cbr != null ? h.cbr : c.b / (c.pop || 1) * 1000;
+      const pop = h && h.pop;
+      const cbr = h && h.cbr;
+      // 极少数缺少早年人口记录的地点不借用其未来人口；同年抽样仅覆盖有依据的权重。
+      if(pop==null||cbr==null){b[c.id]=0;continue;}
       const v = Math.max(0, pop) * Math.max(0, cbr) / 1000;
       b[c.id] = v; sum += v;
     }
     const out = {};
     for (const k in b) out[k] = sum > 0 ? b[k] / sum : null;
+    birthCountCache[key]=Object.fromEntries(Object.entries(b).map(([id,v])=>[id,v*1e6]));
     shareCache[key] = out;
     return out[id] || null;
   }
+  function birthCounts(year){birthShare(root.NL.countries[0].id,year);return birthCountCache[String(year)];}
   // 标准正态 CDF（与引擎同款近似）
   function normCdf(x) {
     const t = 1 / (1 + 0.3275911 * Math.abs(x) / Math.SQRT2);
@@ -98,8 +105,9 @@
     let num = 0, den = 0;
     for (const c of cs) {
       const h = at(c.id, c.reg, year);
-      const ppp = h && h.ppp != null ? h.ppp : c.ppp;
-      const pop = h && h.pop != null ? h.pop : c.pop / 1e6;
+      const ppp = h && h.ppp;
+      const pop = h && h.pop;
+      if(ppp==null||pop==null)continue;
       const s = sigmaOf(c);
       const mu = Math.log(Math.max(400, ppp)) - s * s / 2;
       num += pop * normCdf((lx - mu) / s);
@@ -114,10 +122,14 @@
     const h = at(c.id, c.reg, y);
     f.year = y; f.hist = h;
     if (!h) return f;
-    if (h.le != null && c.le) f.le = (S.sex === 'F' ? c.lf : c.lm) * (h.le / c.le);
+    const era=root.NL_SOURCE_ERA||root.window?.NL_SOURCE_ERA;
+    const sexLE=era?.C[c.id]?.[S.sex==='F'?'f':'m']?.[y-era.y0];
+    if(sexLE!=null)f.le=sexLE/10;
+    else if (h.le != null && c.le) f.le = (S.sex === 'F' ? c.lf : c.lm) * (h.le / c.le);
     if (h.u5 != null) f.u5 = h.u5;
     const sh = birthShare(c.id, y);
-    if (sh) { f.share = sh; f.oneIn = Math.max(1, Math.round(1 / sh)); f.per1000 = sh * 1000; }
+    f.share=sh;f.oneIn=sh?Math.max(1,Math.round(1/sh)):null;f.per1000=sh?sh*1000:null;
+    f.worldPct=null;
     if (h.ppp != null) {
       const inc = root.NL.incomeOf(c, S.q) * (h.ppp / Math.max(400, c.ppp));
       const pct = worldIncomePct(y, inc);
@@ -140,20 +152,21 @@
     return a.length ? a[0] : null;
   }
 
-  const money = (v) => v == null ? null : v >= 10000 ? (v / 10000).toFixed(1) + ' 万美元' : Math.round(v) + ' 美元';
+  const money = (v) => v == null ? null : v >= 10000 ? (v / 10000).toFixed(1) + ' 万国际元' : Math.round(v) + ' 国际元';
   const one = (v) => v == null ? null : v.toFixed(1);
   function tidbit(h, year) {
     const keys = ['im', 'ppp', 'urb', 'net', 'ele', 'u5'];
     for (let n = 0; n < keys.length; n++) {
       const k = keys[(year + n) % keys.length], v = h[k];
       if (v == null) continue;
+      const estimate=h._quality[k]!=='observed'?'估计：':'';
       switch (k) {
-        case 'im': return `每千个婴儿里，约 ${Math.round(v)} 个活不过一岁`;
-        case 'u5': return `每千个孩子里，约 ${Math.round(v)} 个活不到五岁`;
-        case 'ppp': return `按购买力算，人均 GDP 约 ${money(v)}`;
-        case 'urb': return `每 100 人里，约 ${Math.round(v)} 人住在城里`;
-        case 'net': return v < 1 ? '这一带几乎还没有人上网' : `每 100 人里，约 ${Math.round(v)} 人上网`;
-        case 'ele': return `每 100 户里，约 ${Math.round(v)} 户通了电`;
+        case 'im': return estimate+`每千个婴儿里，约 ${Math.round(v)} 个活不过一岁`;
+        case 'u5': return estimate+`每千个孩子里，约 ${Math.round(v)} 个活不到五岁`;
+        case 'ppp': return estimate+`按购买力算，人均 GDP 约 ${money(v)}`;
+        case 'urb': return estimate+`每 100 人里，约 ${Math.round(v)} 人住在城里`;
+        case 'net': return estimate+(v < 1 ? '这一带几乎还没有人上网' : `每 100 人里，约 ${Math.round(v)} 人上网`);
+        case 'ele': return estimate+`每 100 人里，约 ${Math.round(v)} 人能用上电`;
       }
     }
     return '这一年，统计表里留下的数字不多。';
@@ -163,7 +176,7 @@
   function yearInfo(id, reg, year, birthYear) {
     const zh = (root.NL.cby[id] || {}).zh || id;
     if (!inRange(year)) {
-      return { y: year, zh, beyond: true, l1: `${year} · 往后 · 按今天的统计水平推演`, l2: '', era: [] };
+      return { y: year, zh, beyond: true, l1: `${year} · 往后 · 模拟情景`, l2: '', era: [] };
     }
     const h = at(id, reg, year) || {};
     const delta = birthYear != null && h.le != null ? (() => { const b = at(id, reg, birthYear); return b && b.le != null ? h.le - b.le : null; })() : null;
@@ -173,7 +186,7 @@
     const era = eraAt(id, reg, year);
     return {
       y: year, zh, h, beyond: false, era, delta,
-      l1: `${year} · ${zh} · ${leTxt}`,
+      l1: `${year} · ${zh} · ${leTxt}`+(h.le!=null&&h._quality.le!=='observed'?'（估计）':''),
       l2: era.length ? `那年：${era[0].t}` : `那年：${tidbit(h, year)}`,
     };
   }
@@ -188,7 +201,7 @@
   root.NL_TL = {
     available: true, birthYears: BIRTH_YEARS, defaultBirthYear: DEFAULT_BIRTH_YEAR,
     nowYear: NOW_YEAR, y0: Y0, y1: Y1, fields: F,
-    at, birthShare, worldIncomePct, birthFacts, eraAt, eraLine, yearInfo, yearInfoForLife,
+    at, birthShare, birthCounts, worldIncomePct, birthFacts, eraAt, eraLine, yearInfo, yearInfoForLife,
     ageNow: (y) => NOW_YEAR - y,
     note: E.note,
   };

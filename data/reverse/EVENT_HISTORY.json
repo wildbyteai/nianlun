@@ -1,0 +1,5038 @@
+{
+  "version": 2,
+  "observedRange": [
+    1960,
+    2025
+  ],
+  "internalRange": [
+    1950,
+    2025
+  ],
+  "simulatedYearLimit": 2150,
+  "future": "观测输入沿用最后可得值；日历继续推进，来源内核的经济、疾病风险和未来事件规则属于模拟情景",
+  "sources": [
+    {
+      "field": "m",
+      "file": "data/worldbank/events/SP.DYN.LE00.MA.IN.1960-2025.json",
+      "sha256": "c6dc3c9a68c01bbc562d4589a95efbcd371c7b1845a490ecbab563b36e09f356"
+    },
+    {
+      "field": "f",
+      "file": "data/worldbank/events/SP.DYN.LE00.FE.IN.1960-2025.json",
+      "sha256": "a5ee411265ba175aae2bb97fdc2ea07b449316e423f8ef7dc1ccc4ce46bc92a2"
+    },
+    {
+      "field": "t",
+      "file": "data/worldbank/events/SP.DYN.TFRT.IN.1960-2025.json",
+      "sha256": "fa8671de9e112bf1e34fc8b2fb5c5215bfb73e8768186509bd33889eac01493e"
+    }
+  ],
+  "historySourceSha256": "78053b871ee58f2535beb4ccebe6c3a443d0a4ceaa9355960c2ecfb58b0e5230",
+  "units": {
+    "m": "年度男性预期寿命×10",
+    "f": "年度女性预期寿命×10",
+    "t": "年度总和生育率×100",
+    "b": "年度出生人数／1000，3位小数=1人",
+    "p": "五年人口／1000，3位小数=1人",
+    "u5": "五年五岁以下死亡率／千",
+    "im": "五年婴儿死亡率／千",
+    "u": "五年城镇百分比×10",
+    "g": "同国不变价人均GDP／2025对应值×1000；收入模型指数，非历史现价PPP"
+  },
+  "imputation": "男女寿命与生育率：本国最长10年缺口插值→最多3年前值延用→同区同年中位数→明确的模型基线；禁止取本国未来最近值。1950–1959仅供内部亲代背景，锚1960估计，不作为观测。其他字段按HISTORY_QUALITY逐项标识；人口与出生数缺值保留null。收入指数缺同年不变价资料时用中性1000模型假设，不宣称历史收入相同。",
+  "countries": {
+    "ABW": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "AFG": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "AGO": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "ALB": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "ARE": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "ARG": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "ARM": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "ATG": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "AUS": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "AUT": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "AZE": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "BDI": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "BEL": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "BEN": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "BFA": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "BGD": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "BGR": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "BHR": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "BHS": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "BIH": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "BLR": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "BLZ": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "BOL": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "BRA": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "BRB": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "BRN": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "BTN": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "BWA": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "CAF": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "CAN": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "CHE": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "CHL": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "CHN": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "CIV": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "CMR": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "COD": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "COG": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "COL": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "COM": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "CPV": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "CRI": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "CUB": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "CYP": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "CZE": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "DEU": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "DJI": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "DNK": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "DOM": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "DZA": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "ECU": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "EGY": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "ERI": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "ESP": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "EST": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "ETH": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "FIN": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "FJI": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "FRA": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "FSM": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "GAB": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "GBR": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "GEO": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "GHA": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "GIN": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "GMB": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "GNB": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "GNQ": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "GRC": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "GRD": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "GTM": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "GUM": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "GUY": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "HKG": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "HND": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "HRV": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "HTI": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "HUN": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "IDN": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "IND": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "IRL": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "IRN": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "IRQ": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "ISL": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "ISR": {
+      "m": {
+        "observed": 61,
+        "interpolated": 3,
+        "nearest": 1,
+        "region": 1,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 61,
+        "interpolated": 3,
+        "nearest": 1,
+        "region": 1,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "ITA": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "JAM": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "JOR": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "JPN": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "KAZ": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "KEN": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "KGZ": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "KHM": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "KIR": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "KOR": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "KWT": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "LAO": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "LBN": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "LBR": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "LBY": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "LCA": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "LKA": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "LSO": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "LTU": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "LUX": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 63,
+        "interpolated": 2,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "LVA": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "MAC": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "MAR": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "MDA": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "MDG": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "MDV": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "MEX": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "MKD": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "MLI": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "MLT": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "MMR": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "MNE": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "MNG": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "MOZ": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "MRT": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "MUS": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "MWI": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "MYS": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "NAM": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "NCL": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "NER": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "NGA": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "NIC": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "NLD": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "NOR": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "NPL": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "NZL": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "OMN": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "PAK": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "PAN": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "PER": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "PHL": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "PNG": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "POL": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "PRI": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "PRK": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "PRT": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "PRY": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "PSE": {
+      "m": {
+        "observed": 35,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 30,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 35,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 30,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 35,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 30,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "PYF": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "QAT": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "ROU": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "RUS": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "RWA": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "SAU": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "SDN": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "SEN": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "SGP": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "SLB": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "SLE": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "SLV": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "SOM": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "SRB": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "SSD": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "STP": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "SUR": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "SVK": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "SVN": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "SWE": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "SWZ": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "SYC": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "SYR": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "TCD": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "TGO": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "THA": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "TJK": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "TKM": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "TLS": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "TON": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "TTO": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "TUN": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "TUR": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "TZA": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "UGA": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "UKR": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "URY": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "USA": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "UZB": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "VCT": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "VEN": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "VIR": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "VNM": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "VUT": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "WSM": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "YEM": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "ZAF": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "ZMB": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    },
+    "ZWE": {
+      "m": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "f": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      },
+      "t": {
+        "observed": 65,
+        "interpolated": 0,
+        "nearest": 1,
+        "region": 0,
+        "baseline": 0,
+        "pre1960": 10
+      }
+    }
+  },
+  "generatedSha256": "f12a8064bbd656ed142f8be5739fada13d29d09f9437b01d3c04de13ed6b1a19"
+}

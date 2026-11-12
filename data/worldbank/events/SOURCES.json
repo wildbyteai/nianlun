@@ -1,0 +1,32 @@
+{
+  "purpose": "原事件内核的历史性别寿命与生育率；缺值处理另记在生成物来源",
+  "sources": [
+    {
+      "field": "maleLE",
+      "indicator": "SP.DYN.LE00.MA.IN",
+      "url": "https://api.worldbank.org/v2/country/all/indicator/SP.DYN.LE00.MA.IN?format=json&date=1960:2025&per_page=25000",
+      "file": "data/worldbank/events/SP.DYN.LE00.MA.IN.1960-2025.json",
+      "fetched_at": "2026-11-11T06:12:45.904Z",
+      "bytes": 4003122,
+      "sha256": "c6dc3c9a68c01bbc562d4589a95efbcd371c7b1845a490ecbab563b36e09f356"
+    },
+    {
+      "field": "femaleLE",
+      "indicator": "SP.DYN.LE00.FE.IN",
+      "url": "https://api.worldbank.org/v2/country/all/indicator/SP.DYN.LE00.FE.IN?format=json&date=1960:2025&per_page=25000",
+      "file": "data/worldbank/events/SP.DYN.LE00.FE.IN.1960-2025.json",
+      "fetched_at": "2026-11-11T06:12:47.601Z",
+      "bytes": 4038187,
+      "sha256": "a5ee411265ba175aae2bb97fdc2ea07b449316e423f8ef7dc1ccc4ce46bc92a2"
+    },
+    {
+      "field": "fertility",
+      "indicator": "SP.DYN.TFRT.IN",
+      "url": "https://api.worldbank.org/v2/country/all/indicator/SP.DYN.TFRT.IN?format=json&date=1960:2025&per_page=25000",
+      "file": "data/worldbank/events/SP.DYN.TFRT.IN.1960-2025.json",
+      "fetched_at": "2026-11-11T06:12:49.625Z",
+      "bytes": 3973504,
+      "sha256": "fa8671de9e112bf1e34fc8b2fb5c5215bfb73e8768186509bd33889eac01493e"
+    }
+  ]
+}

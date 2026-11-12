@@ -1,44 +1,104 @@
 {
-  "checked": "2026-11-11",
-  "kind": "local browser simulations and Node.js checks; not physical-device acceptance",
-  "cursorContribution": {
-    "tool": "Cursor Desktop",
-    "version": "3.29.15",
-    "scope": "Accessible names for pause/resume and playback-speed controls in an existing game",
-    "targetedChecksPassed": 9,
-    "targetedCheckExitCode": 0,
-    "checks": [
-      "initial pause name",
-      "initial speed name",
-      "paused name",
-      "resume name",
-      "1x-2x-4x-1x cycle",
-      "pre-reset state setup",
-      "new-game initialization",
-      "40x demo initialization",
-      "built-page pause name"
-    ]
+  "checked": "2026-11-13",
+  "kind": "Independent repository build and Node simulations; same-bundle browser simulations recorded 2026-11-12. Not physical-device acceptance.",
+  "bundle": {
+    "file": "dist/nianlun.html",
+    "bytes": 6610902,
+    "sha256": "9400440650f60a4909d71e867d0ad6fb5eb009265e055356a21faec80c393429"
   },
-  "browserViewports": [
-    "360x800",
-    "390x844",
-    "430x932"
-  ],
+  "dataAndEffects": {
+    "checksPassed": 12,
+    "checksFailed": 0,
+    "populationPublishedCellsCompared": 12642,
+    "leadingMissingCellsCompared": 72281,
+    "description": "Population precision, no future backfill, birth weights, actual education/job/medical/household/housing consumers and legacy separation."
+  },
+  "sourceEngine": {
+    "checksPassed": 7,
+    "checksFailed": 0,
+    "lives": 1152,
+    "matrix": "192 locations × 1960/1990/2010 × two seeds",
+    "eventsRegistered": 278,
+    "decisionClassesRegistered": 188,
+    "annualHandlers": 91,
+    "eventsNaturallyReached": 238,
+    "registeredDecisionClassesNaturallyReached": 164,
+    "coverageLimit": "Inventory completeness is not exhaustive natural execution of every rare branch. Imported-core population calibration is not established by legacy checks."
+  },
+  "browser": {
+    "checked": "2026-11-12",
+    "kind": "Chrome browser simulation, not physical devices",
+    "bundleSHA256": "9400440650f60a4909d71e867d0ad6fb5eb009265e055356a21faec80c393429",
+    "viewports": [
+      {
+        "view": "360x800",
+        "checksPassed": 55,
+        "checksFailed": 0,
+        "controlledScenes": 16,
+        "scriptErrors": 0,
+        "externalRequests": 0
+      },
+      {
+        "view": "390x844",
+        "checksPassed": 55,
+        "checksFailed": 0,
+        "controlledScenes": 16,
+        "scriptErrors": 0,
+        "externalRequests": 0
+      },
+      {
+        "view": "430x932",
+        "checksPassed": 55,
+        "checksFailed": 0,
+        "controlledScenes": 16,
+        "scriptErrors": 0,
+        "externalRequests": 0
+      }
+    ],
+    "presentation": {
+      "decisionsChecked": 298,
+      "quiet": 891,
+      "scenes": 927,
+      "allKeysRetained": true,
+      "originalTextRetained": true,
+      "jobIncomeVisible": true
+    },
+    "screenshot": {
+      "file": "docs/gameplay-living.jpg",
+      "sha256": "70cb9e0432bbb5078f578892a805a9157668ec26b0b301fb4a2ea5ab223417ff",
+      "kind": "Controlled rendering of a real queued household-water choice, not an independently sampled population result."
+    }
+  },
+  "inputChecks": {
+    "nativeGeneratorCheck": "Passed with separately supplied original snapshot; only NIANLUN_SOURCE_DIR path handling differs in this public generator.",
+    "BISHousingCheck": "Passed against checked-in ZIP and country mapping.",
+    "runtimeSourceIdenticalToValidatedLocalRevision": true
+  },
+  "legacy": {
+    "command": "node tools/verify_sim.mjs 3000",
+    "checksPassed": 10,
+    "checksFailed": 0,
+    "exitCode": 0,
+    "weightedAgeErrorYears": 0.47,
+    "maxAgeErrorYears": 0.96,
+    "scope": "Isolated original model, not imported-core calibration"
+  },
   "independentExport": {
     "nodeVersion": "v26.3.1",
     "buildCommand": "npm run build",
     "buildExitCode": 0,
+    "buildMatchesValidatedGame": true,
     "simulationCommand": "npm test",
-    "simulationPassed": 17,
+    "simulationPassed": 29,
     "simulationFailed": 0,
-    "simulationExitCode": 0,
-    "buildMatchesValidatedGame": true
+    "simulationExitCode": 0
   },
-  "sourceSHA256": "42547af1fdd20ca71c34335adb511e37cc3841c6c6aa07c6dbafacda62fe323a",
-  "bundleSHA256": "1cdf2ef4029ef36b33815e2b091c4cdc1f4f9d65e4f940c8bae3c30ee506df8e",
+  "previousValidation": "docs/validation-20261111.json",
   "notTested": [
     "physical phones",
     "VoiceOver",
-    "TalkBack"
+    "TalkBack",
+    "automatic deployment of the separately hosted demo",
+    "official fact-checking of every imported institutional rule or event"
   ]
 }

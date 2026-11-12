@@ -154,9 +154,9 @@
   function moodBase(c) {
     return clamp(46 + 9 * Math.log10(Math.max(500, c.ppp) / 2000) - 12 * (c.war || 0), 34, 66);
   }
-  function chooseCountry() {
+  function chooseCountry(year) {
     const w = {};
-    for (const c of C) w[c.id] = c.b;
+    for (const c of C) w[c.id] = year!=null&&root.NL_TL?root.NL_TL.birthShare(c.id,year)||0:c.b;
     return CBY[wpick(w)];
   }
 
@@ -246,16 +246,21 @@
     const seed = opt.seed || newSeed();
     const rng = makeRng('nianlun:' + seed);
     rndF = rng;
-    const c = opt.country ? CBY[opt.country] : chooseCountry();
+    const year0=opt.year0!=null?opt.year0:DEFAULT_BIRTH_YEAR;
+    const historical=root.NL_TL&&root.NL_EVENT_MODE!=='legacy';
+    const c = opt.country ? CBY[opt.country] : chooseCountry(historical?year0:null);
+    const birth=historical?root.NL_TL.at(c.id,c.reg,year0):null;
     const sex = chance(c.srb / (1 + c.srb)) ? 'M' : 'F';
-    const urban = chance(c.urb / 100);
+    const urban = chance((birth?.urb??c.urb) / 100);
     const q = ri(1, 5);
-    const K = 1 + poisson(Math.max(0, c.tfr - 0.8));
+    const era=root.NL_SOURCE_ERA||root.window?.NL_SOURCE_ERA;
+    const tfr=historical?era?.C[c.id]?.t?.[year0-era.y0]/100:null;
+    const K = 1 + poisson(Math.max(0, (Number.isFinite(tfr)?tfr:c.tfr) - 0.8));
     const order = ri(1, K);
     const S = {
       v: 1, seed, rng, born: c.id, cur: c.id, sex, urban, urban0: urban, q, q0: q,
       sibOlder: order - 1, sibPlan: K - order, sibs: order - 1,
-      age: 0, year0: opt.year0 != null ? opt.year0 : DEFAULT_BIRTH_YEAR,
+      age: 0, year0,
       st: {
         gen: clamp(vitality(0) + (q - 3) * 3 - c.u5 / 14 + ri(-5, 5), 25, 96), // 根：身体
         zhi: 52 + Math.min(order + K - 2, 4) * 2 + ri(-6, 6),                   // 枝：亲友
@@ -268,8 +273,8 @@
       queue: [], phase: 'life', death: null, lastRing: null, isComp: !!opt.isComp,
       parents: makeParents(c),
     };
-    if (chance(Math.max(0, (100 - c.ele) / 100) * (urban ? 0.4 : 1.4))) S.flags.noPower = true;
-    return S;
+    if (chance(Math.max(0, (100 - (birth?.ele??c.ele)) / 100) * (urban ? 0.4 : 1.4))) S.flags.noPower = true;
+    return root.NL.source && root.NL_EVENT_MODE !== 'legacy' && !opt.legacy ? root.NL.source.attach(S,opt) : S;
   }
   const use = (S) => { rndF = S.rng; };
   let HAZ_CAL = 1; // 全局系数，只在校准工具里用；各国系数见 src/gen/cal.js
@@ -280,7 +285,8 @@
   }
   const mark = (S, t) => { S.marks.push({ t, ang: rnd() * Math.PI * 2 }); };
   const risk = (S, x, cause) => { S.risk *= x; if (cause) S.riskCause = cause; };
-  const cur = (S) => CBY[S.cur];
+  const cur = (S) => root.NL_LIVING&&root.NL_EVENT_MODE!=='legacy'&&!S.sourceNative
+    ?root.NL_LIVING.country(CBY[S.cur],{by:S.year0,age:S.age,era:'past'}):CBY[S.cur];
 
   // ===== 8. 一年的事件 =====
   // 文化圈：由 culture.js 给出；未加载时一律按华语圈处理（保持旧行为可跑）
@@ -534,6 +540,7 @@
   function setSap(S, sap) {
     S.sap = { gen: sap.gen || 0, zhi: sap.zhi || 0, ye: sap.ye || 0, shi: sap.shi || 0 };
     S.sapAt = S.age;
+    if(S.sourceNative)root.NL.source.focus(S);
   }
   function autoSap(S) {
     use(S);
@@ -545,6 +552,7 @@
 
   // ===== 10. 整局自动跑（同伴、测试用） =====
   function runYear(S) {
+    if(S.sourceNative)return root.NL.source.runYear(S);
     if (sapDue(S)) autoSap(S);
     const items = planYear(S);
     for (const it of items) {
@@ -554,6 +562,7 @@
     return endYear(S);
   }
   function runLife(opt) {
+    if(root.NL.source && root.NL_EVENT_MODE !== 'legacy' && !(opt && opt.legacy))return root.NL.source.runLife(opt || {});
     const S = newLife(opt);
     let guard = 0;
     while (S.phase === 'life' && guard++ < 130) runYear(S);

@@ -1,6 +1,6 @@
 // 引擎统计校验：生命表校准、抽样频率、整局模拟的卒年与决策数量。用法：node tools/verify_sim.mjs [每国局数]
 import { load } from './loader.mjs';
-const ctx = load();
+const ctx = load({eventMode:'legacy'});
 const NL = ctx.NL;
 const info = ctx.window.NL_INFO || NL.info;
 let pass = 0, fail = 0;

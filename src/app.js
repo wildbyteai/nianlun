@@ -1,7 +1,7 @@
 /* 年轮 · 主程序：屏幕流转、手势交互、年度节奏、终章、海报、本地存档 */
 (function () {
   'use strict';
-  const NL = window.NL, TL = window.NL_TL, ART = window.NL_ART, Snd = window.Snd;
+  const NL = window.NL, TL = window.NL_TL, ART = window.NL_ART, Snd = window.Snd, View = window.NL_VIEW;
   NL.init(window.NL_DATA);
   const YEARS = TL.available ? TL.birthYears : [NL.BIRTH_YEAR];
   const DEFAULT_YEAR = TL.available ? TL.defaultBirthYear : NL.BIRTH_YEAR;
@@ -96,12 +96,15 @@
     $('#veil').classList.add('on');
     $(id).classList.add('on');
     G.sheet = id;
+    $$('.scr').forEach(el=>{el.inert=true;});
   }
   function closeSheet() {
     if (!G.sheet) return;
     $(G.sheet).classList.remove('on');
     $('#veil').classList.remove('on');
     G.sheet = null;
+    $$('.scr').forEach(el=>{el.inert=false;});
+    if(G.sceneFocus?.isConnected)G.sceneFocus.focus({preventScroll:true});G.sceneFocus=null;
   }
   function setSoundIcon() {
     const on = Snd.on;
@@ -204,14 +207,14 @@
     }
     G.map.fitZoom();
     G.map.hover();
-    const bps = NL.info.sumBirths / 31557600;
+    G.map.setYear(G.birthYear);G.dropSince=performance.now();
+    $('#drop-year').textContent=G.birthYear;
+    const bps = G.map.bps;
     $('#bps').textContent = bps.toFixed(1).replace(/\.0$/, '');
     G.hold = null;
   }
   function tickerValue() {
-    const now = new Date();
-    const sec = (now - new Date(now.getFullYear(), now.getMonth(), now.getDate())) / 1000;
-    return Math.round((sec * NL.info.sumBirths) / 31557600);
+    return Math.round(Math.max(0,performance.now()-(G.dropSince||performance.now()))/1000*(G.map?.bps||0));
   }
   function holdStart(e) {
     if (G.mode !== 'drop' || G.hold || $('#hold').disabled) return;
@@ -261,7 +264,7 @@
     $('#land-nm').textContent = c.zh;
     const h = TL.available ? TL.at(c.id, c.reg, S.year0) : null;
     const sexLE = S.sex === 'F' ? c.lf : c.lm;
-    const le = Math.round(h && h.le != null && c.le ? sexLE * h.le / c.le : sexLE);
+    const le = Math.round(TL.available?TL.birthFacts(S).le:sexLE);
     $('#land-sub').textContent = `${S.year0} 年，这里的新生儿平均活到 ${le} 岁`;
     $('#land-label').classList.add('on');
     $('#drop-hint').textContent = '';
@@ -279,13 +282,13 @@
     $('#birth-tags').innerHTML = [S.sex === 'F' ? '女孩' : '男孩', S.urban ? '城里' : '乡下', '家境 · ' + CLASS_TXT[S.q - 1], sib ? `兄弟姐妹 ${sib} 个` : '独生']
       .map((t, i) => `<span class="tag ${i === 2 ? 'zhu' : ''}">${t}</span>`).join('');
     $('#birth-facts').innerHTML = [
-      [`1/${f.oneIn}`, `每 ${f.oneIn} 个新生儿里，有 1 个落在这里`],
+      [f.oneIn?`1/${f.oneIn}`:'—', f.oneIn?`每 ${f.oneIn} 个新生儿里，有 1 个落在这里`:'暂无同年出生占比资料'],
       [`${Math.round(f.le)}<small>岁</small>`, `这里的${S.sex === 'F' ? '女性' : '男性'}平均能活到这个岁数`],
-      [`${f.u5 >= 10 ? Math.round(f.u5) : f.u5}<small>‰</small>`, `每一千个孩子里，活不到五岁的`],
-      [`${f.worldPct}<small>%</small>`, `全世界约这么多人的收入低于你家`],
+      [`${f.u5 >= 10 ? Math.round(f.u5) : f.u5}<small>‰</small>`, `每一千个孩子里，活不到五岁的${f.hist?._quality.u5!=='observed'?'（估计）':''}`],
+      [f.worldPct!=null?`${f.worldPct}<small>%</small>`:'—', f.worldPct!=null?'按当年资料粗估的全球家境位置':'暂无同年收入比较资料'],
     ].map(([k, v]) => `<li><span class="k">${k}</span><span>${v}</span></li>`).join('');
     const bn = $('#birth-note');
-    if (bn) bn.textContent = TL.available ? `四项取自 ${S.year0} 年各国统计；往后按今天的医疗水平推演。` : '';
+    if (bn) bn.textContent = TL.available ? `统计按 ${S.year0} 年读取；缺测与估计另作标识，人物家境与往后经历属于模拟。` : '';
     buildStats($('#birth-stats'));
     renderStats($('#birth-stats'), S.st);
     show('birth');
@@ -320,6 +323,9 @@
 
     const item = document.createElement('div');
     item.className = 'era-item now';
+    item.tabIndex=0;item.setAttribute('role','button');item.setAttribute('aria-label',`${yearOf(S)} 年的世界线详情`);
+    item.addEventListener('click',()=>sceneDetail(item.querySelector('.l1').textContent,info?info.l1+'\n'+info.l2:'按已知资料推演。'));
+    item.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();item.click();}});
     const l1 = document.createElement('span'), l2 = document.createElement('span'), tag = document.createElement('i');
     l1.className = 'l1'; l2.className = 'l2';
     item.appendChild(l1); item.appendChild(l2);
@@ -342,12 +348,12 @@
       item.dataset.y0 = info.y;
       l1.innerHTML = `<b>${info.y}</b> · ${info.zh}`;
       tag.textContent = '往后'; l2.appendChild(tag);
-      l2.appendChild(document.createTextNode('没有史料，只有按今天水平的推演。'));
+      l2.appendChild(document.createTextNode('已知条件之后，是模拟的日子。'));
     } else {
       l1.innerHTML = `<b>${info.y}</b> · ${info.zh} · `;
-      l1.appendChild(document.createTextNode(info.l1.split(' · ').slice(2).join(' · ')));
+      l1.appendChild(document.createTextNode(info.h?.le!=null?`预期寿命 ${info.h.le.toFixed(1)} 岁`:'逐年资料'));
       tag.textContent = '那年'; l2.appendChild(tag);
-      l2.appendChild(document.createTextNode(info.l2.replace(/^那年：/, '')));
+      l2.appendChild(document.createTextNode(View.compact(info.l2.replace(/^那年：/, ''),24)));
     }
     host.appendChild(item);
     if (!reduce && info && info.era && info.era.length) {
@@ -377,6 +383,7 @@
   function enterLife() {
     const S = G.S;
     G.mode = 'life';
+    $('#s-life').classList.remove('is-choosing');$('#life-whisper').textContent='';$('#life-whisper').classList.remove('has-note');
     G.speed = AUTO ? 40 : 1; G.paused = false; G.pending = false; G.read = 0; G.quietN = 0; G.nowDone = false;
     setSpeedName();
     setPauseName(); $('#btn-pause').classList.remove('on');
@@ -415,7 +422,8 @@
       G.pending = false;
       const d = side === 'L' ? { zhi: 6, ye: 2 } : { ye: 9, zhi: -3 };
       const text = side === 'L' ? '你把日子往回收了收。没什么豪言，先把觉睡够。' : '你没想清楚要换成什么样，只是决定不再照着原来的样子往下长。';
-      for (const k in d) S.st[k] = Math.max(0, Math.min(100, S.st[k] + d[k]));
+      if(S.sourceNative)NL.source.adjust(S,d);
+      else for (const k in d) S.st[k] = Math.max(0, Math.min(100, S.st[k] + d[k]));
       S.log.push({ a: S.age, y: S.year0 + S.age, id: 'now_today', icon: 'road', text, d, m: [], q, pick: side === 'L' ? '稳着往下长' : '换一种活法', side });
       renderStats($('#life-stats'), S.st, d);
       Snd.chime();
@@ -469,25 +477,31 @@
   function startYear() {
     const S = G.S;
     if (S.age === NL.ageNow(S) && !G.nowDone) { showNowCard(S); return; }
-    G.q = NL.planYear(S);
+    G.q = S.sourceNative ? [] : NL.planYear(S);
     G.qi = 0; G.t = 0;
     G.yearHadEvent = false;
+    G.sceneCount = 0;
+    if(S.sourceNative)NL.source.focus(S);
     G.discRings.push(estimateRing(S));
+    G.disc.opt.ref = Math.min(90, Math.max(10, (S.age + 1) * 1.8));
     G.disc.pushRing();
     G.disc.grow = 0;
     if (!reduce) G.disc.flash('ring');
   }
   function readTime(text) { return 1000 + text.length * 55; }
   function eventCard(entry) {
+    if(entry.sourceId){sourceEventCard(entry);return;}
     const S = G.S;
     const el = document.createElement('div');
-    el.className = 'card in';
+    el.className = 'card in' + (entry.sourceId ? ' source-note' : '');
     const d = entry.d || {};
     const chips = STAT.filter((s) => d[s.k]).map((s) => `<span class="delta ${d[s.k] > 0 ? 'up' : 'dn'}">${s.zh} ${d[s.k] > 0 ? '+' : ''}${d[s.k]}</span>`).join('');
     el.innerHTML = `<div class="meta"><span>${entry.a} 岁</span><span>${yearHTML(S, entry.a)}</span></div>
       <div class="ev"><div class="pic">${ART.vig[entry.icon] || ''}</div><p></p></div>
       <div class="deltas">${chips}</div>`;
     el.querySelector('p').textContent = entry.text;
+    if(entry.history){const badge=document.createElement('span');badge.className='history-badge';badge.textContent=entry.history.followUp?'后续影响':entry.history.projected?'模拟情景':'年代经历';el.querySelector('.meta').appendChild(badge);}
+    if(entry.fact){const details=document.createElement('details');details.className='event-fact';const summary=document.createElement('summary');summary.textContent='事件资料';const p=document.createElement('p');p.textContent=entry.fact;details.append(summary,p);el.querySelector('.ev').appendChild(details);}
     const host = $('#cards');
     host.innerHTML = '';
     host.appendChild(el);
@@ -507,6 +521,57 @@
     if (ms.includes('scar')) { Snd.thud(); buzz(40); } else if (ms.includes('frost')) Snd.frost(); else if (ms.includes('bloom')) Snd.chime(); else Snd.tok(440);
     G.read = readTime(entry.text);
     G.yearHadEvent = true; G.quietN = 0;
+  }
+  function sceneArt(art){
+    const el=document.createElement('div');el.className='scene-art';el.setAttribute('aria-hidden','true');el.innerHTML=ART.vig[art]||ART.vig.road;return el;
+  }
+  function sceneText(text,className=''){
+    const el=document.createElement('p');el.className=className;el.textContent=text;return el;
+  }
+  function sceneDetail(title,body,fact,choices,commit){
+    const returnFocus=document.activeElement;
+    $('#scene-title').textContent=title||'事情经过';
+    const host=$('#scene-body');host.replaceChildren();
+    if(body)host.appendChild(sceneText(body,'scene-original'));
+    if(choices){
+      const list=document.createElement('div');list.className='scene-full-choices';
+      for(const choice of choices){
+        const button=document.createElement('button');button.type='button';button.disabled=choice.disabled;
+        button.appendChild(sceneText(choice.label));if(choice.sub)button.appendChild(sceneText(choice.sub,'scene-option-note'));
+        button.addEventListener('click',()=>{closeSheet();commit(choice.key);});list.appendChild(button);
+      }
+      host.appendChild(list);
+    }
+    if(fact){const details=document.createElement('details'),summary=document.createElement('summary');summary.textContent='资料与背景';details.append(summary,sceneText(fact));host.appendChild(details);}
+    openSheet('#sh-scene');
+    G.sceneFocus=returnFocus;$('#sh-scene h3 button').focus({preventScroll:true});
+  }
+  function paintSourceEffects(entry){
+    const S=G.S;renderStats($('#life-stats'),S.st,entry.d||{});
+    const ring=G.discRings.at(-1);
+    if(ring&&entry.marks?.length){ring.m=ring.m.concat(entry.marks);G.disc.cache=null;}
+  }
+  function sourceWhisper(entry){
+    paintSourceEffects(entry);
+    const el=$('#life-whisper');el.textContent=View.compact(entry.text,36);el.classList.add('has-note');
+    G.read=entry.sourceKind==='dec'?220:420;
+  }
+  function sourceEventCard(entry){
+    const S=G.S,vm=View.event(entry),el=document.createElement('div');el.className='card source-note in';
+    paintSourceEffects(entry);
+    const meta=document.createElement('div');meta.className='meta';meta.textContent=entry.history?(entry.history.followUp?'后来，这件事仍在影响你':entry.history.projected?'往后的一个可能':'那一年，走进了你的日子'):`${entry.a} 岁`;
+    const hero=document.createElement('div');hero.className='scene-hero event-hero';hero.appendChild(sceneArt(vm.art));
+    const words=document.createElement('div');words.className='scene-words';words.append(sceneText(vm.title,'scene-title'),sceneText(vm.summary,'scene-summary'));hero.appendChild(words);
+    const changes=document.createElement('div');changes.className='deltas scene-deltas';
+    for(const stat of STAT.filter(s=>entry.d?.[s.k]).slice(0,3)){const chip=document.createElement('span');chip.className='delta '+(entry.d[stat.k]>0?'up':'dn');chip.innerHTML=ART.icon[stat.icon];chip.appendChild(document.createTextNode(' '+stat.zh+' '+(entry.d[stat.k]>0?'+':'')+entry.d[stat.k]));changes.appendChild(chip);}
+    const actions=document.createElement('div');actions.className='scene-actions';
+    const more=document.createElement('button');more.type='button';more.className='scene-more';more.textContent='事情经过';more.addEventListener('click',()=>sceneDetail(vm.title,entry.text,entry.fact));
+    const next=document.createElement('button');next.type='button';next.className='scene-next';next.textContent='接着长';next.addEventListener('click',()=>{if(G.S===S&&!G.pending)G.read=0;});
+    actions.append(more,next);el.append(meta,hero,changes,actions);$('#cards').replaceChildren(el);
+    const ms=entry.m||[];
+    if(!reduce&&ms.length)G.disc.flash(ms.includes('scar')?'scar':ms.includes('frost')?'frost':'bloom');
+    if(ms.includes('scar'))Snd.thud();else if(ms.includes('frost'))Snd.frost();else if(ms.includes('bloom'))Snd.chime();
+    G.read=Math.max(1800,Math.min(4200,vm.summary.length*72));G.yearHadEvent=true;G.quietN=0;G.sceneCount=(G.sceneCount||0)+1;
   }
   function quietCard() {
     const S = G.S;
@@ -649,8 +714,9 @@
 
   // ---------- 年度节奏 ----------
   function lifeTick(dt) {
-    if (G.paused || G.pending) { G.disc.render(); return; }
+    if (G.paused || G.pending || G.sheet) { G.disc.render(); return; }
     if (G.read > 0) G.read -= dt * G.speed;
+    if(G.S.sourceNative){sourceLifeTick(dt);return;}
     const n = G.q.length;
     if (G.qi < n && G.t >= (G.qi + 1) / (n + 1)) {
       if (G.read <= 0) fire(G.q[G.qi++]);
@@ -665,6 +731,55 @@
     G.t = Math.min(1, G.t + (dt * G.speed) / YEAR_MS);
     G.disc.grow = G.t;
     G.disc.render();
+  }
+  function sourceLifeTick(dt){
+    const S=G.S;
+    if(G.read>0){G.disc.render();return;}
+    const item=NL.source.next(S);
+    if(item){
+      if(item.type==='log'){if(View.foreground(item.entry,G.sceneCount||0))eventCard(item.entry);else sourceWhisper(item.entry);if(AUTO)G.read=0;}
+      else if(item.type==='decision'){
+        if(AUTO)NL.source.choose(S,NL.source.auto(S));else showSourceDecision();
+      }else if(item.type==='year'){
+        G.discRings[G.discRings.length-1]=item.ring;G.disc.pushRing();G.disc.grow=1;
+        renderStats($('#life-stats'),S.st);Snd.ring(item.ring.g,item.ring.m.some(m=>m.t==='scar'));beginYear();
+      }else if(item.type==='death'){
+        if(item.ring){G.discRings[G.discRings.length-1]=item.ring;G.disc.pushRing();}
+        G.disc.grow=1;startDeath();
+      }
+    }else if(S.sourceNative.pending){if(AUTO)NL.source.choose(S,NL.source.auto(S));else showSourceDecision();}
+    else{NL.source.step(S,(dt*G.speed)/YEAR_MS);G.t=S.sourceNative.t;G.disc.grow=G.t;}
+    G.disc.render();
+  }
+  function showSourceDecision(){
+    const S=G.S,d=NL.source.decision(S);if(!d)return;
+    const vm=View.decision(d);
+    G.pending=true;
+    $('#s-life').classList.add('is-choosing');
+    const el=document.createElement('div');el.className='card dec in source-card';el.dataset.decision=d.id;
+    const meta=document.createElement('div');meta.className='meta';meta.textContent=d.history?'这一年的选择':'这一步，由你';
+    const hero=document.createElement('div');hero.className='scene-hero decision-hero';hero.appendChild(sceneArt(vm.art));
+    const words=document.createElement('div');words.className='scene-words';words.append(sceneText(vm.title,'q'),sceneText(vm.prompt,'scene-prompt'));hero.appendChild(words);
+    const body=document.createElement('div');body.className='source-body';body.tabIndex=0;body.setAttribute('aria-label','选择详情，可上下滚动');
+    let input;
+    if(d.input){input=document.createElement('textarea');input.maxLength=600;input.rows=2;input.placeholder=d.id==='reflect'?'写下一件想留住的小事，也可以留在心里。':d.placeholder;input.setAttribute('aria-label',d.title||'写下你的想法');body.appendChild(input);}
+    const choices=document.createElement('div');choices.className='choices source-choices'+(d.choices.length===3?' is-list':'');
+    let done=false;
+    const commit=key=>{if(done)return;done=true;G.onKey=null;G.pending=false;$('#s-life').classList.remove('is-choosing');NL.source.choose(S,key,input?.value||'');Snd.swipe();buzz(15);placeholder('日子，继续往下长。');G.read=0;};
+    vm.choices.forEach(choice=>{const button=document.createElement('button');button.type='button';button.dataset.choice=choice.key;button.disabled=choice.disabled;button.setAttribute('aria-label',choice.originalLabel+(choice.originalHint?'，'+choice.originalHint:''));
+      const label=document.createElement('span');label.textContent=choice.label;button.appendChild(label);
+      if(choice.hint){const sub=document.createElement('small');sub.textContent=choice.hint;button.appendChild(sub);}
+      button.addEventListener('click',()=>commit(choice.key));choices.appendChild(button);
+    });
+    body.appendChild(choices);
+    const footer=document.createElement('div');footer.className='source-footer';
+    const more=document.createElement('button');more.type='button';more.className='scene-more';more.textContent='完整情境与选项';more.addEventListener('click',()=>sceneDetail(d.title,d.body,d.fact,d.choices,commit));
+    const hint=document.createElement('small');hint.className='source-hint';hint.textContent=d.choices.length===2?'也可左右滑动':d.choices.length+' 个方向';
+    footer.append(more,hint);el.append(meta,hero,body,footer);$('#cards').replaceChildren(el);Snd.tok(660);
+    requestAnimationFrame(()=>{if(el.isConnected&&body.scrollHeight>body.clientHeight+2)hint.textContent=d.choices.length+' 个方向 · 上下滑动';});
+    G.onKey=key=>{if(document.activeElement===input)return;const i=/^[1-9]$/.test(key)?+key-1:key==='ArrowLeft'?0:key==='ArrowRight'&&d.choices.length===2?1:-1;if(d.choices[i]&&!d.choices[i].disabled)commit(d.choices[i].key);};
+    if(d.choices.length===2){let start=null;el.addEventListener('pointerdown',e=>{if(!e.target.closest('button,textarea,details'))start={x:e.clientX,y:e.clientY};});
+      el.addEventListener('pointerup',e=>{if(!start)return;const dx=e.clientX-start.x,dy=e.clientY-start.y;start=null;if(Math.abs(dx)>70&&Math.abs(dy)<Math.abs(dx)*.5)commit(d.choices[dx>0?1:0].key);});el.addEventListener('pointercancel',()=>{start=null;});}
   }
   function finishYear() {
     const S = G.S;
@@ -830,10 +945,10 @@
     if (!S) return;
     const ul = $('#log-list');
     ul.innerHTML = '';
-    $('#log-legend').textContent = TL.available ? '赭色小字＝那一年的世界线（逐年统计与史实）；其余是你自己的事。' : '';
+    $('#log-legend').textContent = TL.available ? '赭色小字＝那一年的世界线；标注「年代经历」的条目已进入你的经历与结算。具体遭遇和后果属于游戏模拟。' : '';
     const byAge = {};
     S.log.forEach((e) => { (byAge[e.a] = byAge[e.a] || []).push(e); });
-    const ages = Object.keys(byAge).map(Number).sort((a, b) => b - a);
+    const ages = [...new Set([...Object.keys(byAge).map(Number),S.age])].sort((a,b)=>b-a);
     ages.forEach((a) => {
       if (TL.available) {
         const info = TL.yearInfoForLife(S, a);
@@ -846,17 +961,19 @@
           ul.appendChild(el);
         }
       }
-      byAge[a].forEach((e) => {
+      (byAge[a]||[]).forEach((e) => {
         const li = document.createElement('li');
         li.innerHTML = '<span class="a"></span><span class="t"></span>';
         li.querySelector('.a').textContent = `${e.a} 岁 · ${e.y} 年`;
         const t = li.querySelector('.t');
         t.textContent = e.text;
+        if(e.history){li.classList.add('history-entry');const em=document.createElement('em');em.textContent=(e.history.followUp?'后续影响，源于':e.history.projected?'模拟情景':'年代经历')+' · '+e.history.year+' 年'+(e.history.headline!==e.text?' · '+e.history.headline:'');t.appendChild(em);}
         if (e.pick) { const em = document.createElement('em'); em.textContent = `${e.q} → 你选了「${e.pick}」`; t.appendChild(em); }
+        if(e.result){const details=document.createElement('details');const summary=document.createElement('summary');summary.textContent='此时的生活';const p=document.createElement('p');p.textContent=`健康 ${Math.round(e.result.health)} · 学业阶段 ${e.result.edu} · 年收入约 ${Math.round(e.result.income).toLocaleString()} · 净资产约 ${Math.round(e.result.netWorth).toLocaleString()}（购买力国际元；模拟值）`;details.append(summary,p);t.appendChild(details);}
         ul.appendChild(li);
       });
     });
-    if (!S.log.length) ul.innerHTML = '<li class="empty">这一生才刚开始。</li>';
+    if (!ul.children.length) ul.innerHTML = '<li class="empty">这一生才刚开始。</li>';
     openSheet('#sh-log');
   }
   function openForest() {
@@ -885,28 +1002,31 @@
       <h4>数据</h4>
       <ul>
         <li>世界银行世界发展指标（WDI，CC BY 4.0）有<b>两套口径</b>：各国最新可得年份的横截面（寿命与死亡率 ${y.le}、人均 GDP ${y.ppp}、人口 ${y.pop}），以及 ${tl ? `${TL.y0}–${TL.y1} 年` : '多年'}的逐年时间序列（预期寿命、婴儿与五岁以下死亡率、人均 GDP、城镇化、通电率、上网率、人口、粗出生率）。</li>
-        <li>逐年数据覆盖 ${NL.countries.length} 个国家和地区、每年 9 项指标。缺失年份先用相邻年份线性插值，尾部最多前推 3 年；仍缺的单元格按<b>同年、全球预期寿命最接近的 ${NL.info.impute ? NL.info.impute.k : 10} 个国家</b>取中位数。${tl ? TL.note : ''}</li>
-        <li>横截面的缺失指标用同一套办法：按预期寿命取近邻，而不是按收入组。理由是香港、澳门、波多黎各这些地方在 WDI 里没有五岁以下死亡率，寿命却是全球最高一档，同收入组或同地区都找不到可比对象。每个指标该用哪种补法，由留一交叉验证判定（把有真实值的国家逐个当成缺测，两种方法各算一遍误差，取小的那个）；结果与补了哪些国家都记在数据文件的 <code>impute</code>、<code>imp</code> 字段里，可以复算。</li>
+        <li>逐年数据为 ${NL.countries.length} 个地点建立 ${TL.fields.length} 项指标框架，各项有自己的非空年份。新增中学／高教毛入学率、ILO就业与产业结构、医疗自付、基本饮水、不变价收入序列。人口保留到人；有限跨度插值、最多3年前值延用分别标识。仅儿童死亡缺项保留同年寿命近邻估计；其他生活指标长缺口保持缺失，禁止将未来观测倒填到更早年代。</li>
+        <li>横截面的缺失字段按留一比较选择寿命近邻或收入组估计；结果与缺项保存在数据文件中。逐年数据另有逐字段的观测、插值、前值延用与缺失标识，缺资料不代表当地没有这种生活。</li>
         <li>战事强度来自世界银行转载的 UCDP 战斗死亡数。地图是 Natural Earth 的 1:1.1 亿陆地轮廓（公有领域）。全部数据已存在本地，运行时不联网。</li>
-        <li>学制、课程年限、劳动、兵役、迁移和住房等配置，采用 2026-11-09 采集的《80 亿分之 1》公开前端资料，整理后覆盖 ${NL.profiles.info.covered} 个国家和地区。它们是游戏资料快照，未对全部条目逐项官方核验；其余 ${NL.profiles.info.missing.length} 个地点及缺项沿用明确的游戏默认规则，不用旧截面替换世界银行数据。</li>
+        <li>事件、决策和国家制度采用 2026-11-09 采集的《80 亿分之 1》公开前端快照：完整同步模拟内核包含 278 条常规事件、188 类决策，以及家庭、职业、疾病等逐年处理，适用于 ${NL.profiles.info.covered} 个地点。原库没有配置的 ${NL.profiles.info.missing.length} 个地点保留年轮原有事件模型。原库文案及概率是游戏资料，未对全部条目逐项官方核验。</li>
+        <li>完整事件内核另用 WDI 1960–2025 年的男性寿命、女性寿命与总和生育率。有限国内插值、最多3年前值延用、同区同年估计或明确的模型基线分开记录；1950–1959 年只供内部亲代背景，以1960年为锚估计。未来沿用末次环境输入，属于情景假设。</li>
+        <li>学业、职业候选和医疗费用模型读取可用的当年教育、就业与卫生资料。毛入学率可超过100%，不等于你的录取概率；失业率不等于某次投递失败率；医疗自付占全国卫生支出结构，不等于你的账单比例。ILO序列本身为模型统计，与本项目插补分开。电力与基本饮水通过时间、开支、学习与家庭联系影响生活，不再叠加死亡风险。</li>
       </ul>
       <h4>时间线怎么走</h4>
       <ul>
         <li>标题页可以选出生年份（${YEARS.join(' / ')}，默认 ${DEFAULT_YEAR}）。落在哪个国家、出生在哪一年，决定了之后每一年读到的世界线。</li>
-        <li>出生卡的四项数字按<b>出生当年的全球数据</b>重算：出生占比用当年各国「人口 × 粗出生率」，收入位置用当年各国人均 GDP 与人口，寿命和五岁以下死亡率取当年值。</li>
-        <li>一生里每一年显示该国当年的预期寿命与一项统计；遇到有年代注脚的年份，会显示一条史实背景（全球 / 地区 / 国家三层）。年谱把世界线和你自己的事按年份排在一起，终章回看每一年也能看到。</li>
+        <li>出生占比按当年有资料地点的「人口 × 粗出生率」重算；按当年资料粗估家境位置，早年缺收入资料时留空。性别寿命读取当年相应序列，儿童死亡的估计值另作标识。</li>
+        <li>每年显示当年所在地的统计与史实。历史危机、战争、灾害和疫情可进入人物经历，影响工作、财产、健康和亲属；升学、支付与新技术等变化还可带来应对选择。按年龄、职业、城乡和个人条件筛选，并非同国同年人人受同一种冲击。年谱会保留「年代经历」、你的选择和当时的结果。</li>
         <li>搬家之后，年代注脚跟着<b>当年居住地</b>走。${NL.NOW_YEAR} 年之后的年份是推演，没有史料。</li>
       </ul>
       <h4>方法</h4>
       <ul>
-        <li>落在哪：按各国「最新横截面」的年出生数（人口 × 粗出生率，合计约 ${(NL.info.sumBirths / 1e8).toFixed(2)} 亿）加权抽取。按住的时长不影响结果。</li>
-        <li>活多久：为每个国家分性别校准一张生命表（婴幼儿死亡率打底，成年用 Gompertz–Makeham 曲线，高龄用 Kannisto 平台）。身体状况和意外只影响个体的风险高低，总体死亡水平按年龄段校准回统计值。</li>
-        <li><b>口径边界</b>：出生卡、逐年统计与年代注脚用历史资料；寿命与死亡风险仍按<b>今天</b>各国的医疗水平推演。升学阶段及部分就业、迁移、兵役、住房条件会读取国家与年代配置；没有历史记录的概率和健康指标继续使用横截面，不当作历史复原。</li>
+        <li>落在哪：按选定出生年有资料地点的人口与粗出生率加权抽取。缺少该年人口／出生率的地点没有可用抽样权重，不拿未来值冒充。按住的时长不影响结果。</li>
+        <li>历史收入：用同国不变价人均GDP与当前年的比值缩放游戏收入，锚定当前PPP口径；缺值时是中性的模型假设，不是早年现价PPP或某人的真实工资。城市住房优先读取BIS已公布的实质住宅价格：买房成本参考上年末，年度资产变化读取本年末；到个人成本与资产的映射是游戏模型。农村或缺少资料时保留原配置，房价指数不当作房租。</li>
+        <li>活多久：有完整事件配置的地点，疾病、意外与年末死亡统一由完整内核结算，历史寿命与婴幼儿死亡率会随年代调整；不再叠加旧模型的年末死亡抽签。其余地点保留按当前 WDI 校准的年轮生命表。</li>
+        <li><b>口径边界</b>：官方统计提供人口与健康等背景，不提供任何真实个人的人生剧本。具体遭遇、录取、工作、投资和死亡都由简化游戏模型产生；缺少历史观测的参数仍为游戏配置。四项状态是完整人物状态的显示投影，收入、资产、学业和家庭另有持续记录。</li>
         <li>事件会按当年居住地、年份和人物状态筛选。部分地点另有升学、就业与住房路径，选择会改变学业、职业、家底或居住安排；各地的专属内容覆盖程度仍有差异。</li>
         <li>制度名称与历史背景参考公开资料；标准课程年限读取配置，录取、职业机会、个体故事与状态数值仍是简化的游戏设定。${NL.NOW_YEAR} 年之后按已知条件延续推演，不把旧房价或危机延伸为未来实测，也不代表制度预测。</li>
       </ul>
       <h4>说明</h4>
-      <p>这一局从 ${G.birthYear} 年出生开始，${NL.NOW_YEAR} 年你 ${ageNow(G.birthYear)} 岁，之后按同一套水平继续推演。不是对未来的预测。</p>
+      <p>这一局从 ${G.birthYear} 年出生开始，${NL.NOW_YEAR} 年你 ${ageNow(G.birthYear)} 岁。之后的事件属于模拟情景，不是未来史实或预测。</p>
       <p>这是简化模型，不预测任何真实个人的命运。国家和地区名称沿用数据来源的分类，只作统计标识。所有人生记录只存在你的这台设备上。</p>`;
   }
 
@@ -1023,8 +1143,10 @@
   });
   document.addEventListener('contextmenu', (e) => { if (!e.target.closest('img')) e.preventDefault(); });
   document.addEventListener('keydown', (e) => {
+    if(e.isComposing||e.target.closest('input,textarea,[contenteditable="true"]'))return;
     if (e.key === 'Escape') closeSheet();
-    if (G.onKey && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) G.onKey(e.key);
+    if(G.sheet)return;
+    if (G.onKey && (e.key === 'ArrowLeft' || e.key === 'ArrowRight' || /^[1-9]$/.test(e.key))) G.onKey(e.key);
   });
   const hold = $('#hold');
   hold.addEventListener('pointerdown', holdStart);
@@ -1049,6 +1171,7 @@
     }, 120);
   });
   document.addEventListener('visibilitychange', () => { if (document.hidden) { Snd.wind(0); stopPlay(); } });
+  new ResizeObserver(()=>{if(G.disc){G.disc.resize();G.disc.render();}}).observe($('#life-disc-wrap'));
 
   // ---------- 启动 ----------
   Snd.set(store.get('sound', true));

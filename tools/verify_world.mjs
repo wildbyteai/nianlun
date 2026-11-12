@@ -2,7 +2,7 @@
 // 用法：node tools/verify_world.mjs [每国局数]
 import { load } from './loader.mjs';
 
-const ctx = load();
+const ctx = load({eventMode:'legacy'});
 const NL = ctx.NL;
 const CUL = ctx.NL_CUL;
 const N = +(process.argv[2] || 600);

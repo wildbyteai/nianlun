@@ -1,0 +1,2632 @@
+{
+  "collected": "2026-11-09",
+  "generator": "tools/import_profiles.mjs",
+  "sources": [
+    {
+      "file": "derived/data/main.COUNTRIES.json",
+      "sha256": "6d9ba5c0789e79ee0be9c63a7f0fdf27c9203982c4249f1057f02f6dacb774bc",
+      "bytes": 64334,
+      "records": 172
+    },
+    {
+      "file": "derived/data/main.SCH_SYS.json",
+      "sha256": "e4d542ea71af3169a2f24e7d4f53190812dd148b26ef3316e12b69906d475725",
+      "bytes": 3827,
+      "records": 172
+    },
+    {
+      "file": "derived/data/main.UNI_LEN.json",
+      "sha256": "5170f748ed5c310ab5c93a0c951686b2ea5b854f48a711a14c1c4cf8b995659a",
+      "bytes": 707,
+      "records": 49
+    },
+    {
+      "file": "derived/data/main.LABOUR.json",
+      "sha256": "38794300c1bd829fe2dddc1e9fcdc4ca4926d4c3be7af1924668b41bb3a77aca",
+      "bytes": 2893,
+      "records": 172
+    },
+    {
+      "file": "derived/data/main.ERA_CS.json",
+      "sha256": "11b1bb61d9a32f482d8a4e8b958cae4f8d0c0234aba163316c496e3b5bfa5fff",
+      "bytes": 2264,
+      "records": 56
+    },
+    {
+      "file": "derived/data/main.ERA_CLOSED.json",
+      "sha256": "96b6495a91ba4b532c86320f259043b6ae1546f2d5d4afbac025f7bff0c490f5",
+      "bytes": 301,
+      "records": 9
+    },
+    {
+      "file": "derived/data/main.ERA_ECON.json",
+      "sha256": "5dff72f129040d13a5f37c58a19064523b2c5cb8c72b88a323e1ac0dd0ea46a1",
+      "bytes": 2346,
+      "records": 49
+    },
+    {
+      "file": "derived/data/main.HPI.json",
+      "sha256": "43502793c8f2ca78eccffeccf058d54d3f5a54e9e3a0e393f1c28d370d6e97b2",
+      "bytes": 9503,
+      "records": 46
+    },
+    {
+      "file": "derived/data/main.HPI_B.json",
+      "sha256": "b49eecf69ae1807ef8f2e94cb211714251751e8fdeba49b87474daaf158993eb",
+      "bytes": 315,
+      "records": 2
+    }
+  ],
+  "interpretation": {
+    "school": "四位编码→入学年龄／小学／初中／高中年数；年份前缀→切换年",
+    "degree": "按大学入学年份取年数；无项采用游戏默认四年",
+    "labour": "失业率与女性劳动参与率，百分数；只用失业率参与求职抽样，非历史失业率序列",
+    "service": "男性／女性月份与选取标记；历史区间覆盖当前值",
+    "migration": "目的地过滤为本游戏存在的 ISO；受限区间只约束普通出国",
+    "economy": "只采用日期范围与裁员乘子；不采用股价／储蓄／资产冲击参数",
+    "housing": "第一串年度实质变化从基年+1开始；不采用第二串价格周期；HPI_B仅城市"
+  },
+  "records": {
+    "AFG": {
+      "school": "SCH_SYS#/AFG",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/AFG",
+      "service": "COUNTRIES#/0/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/0/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "AGO": {
+      "school": "SCH_SYS#/AGO",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/AGO",
+      "service": "COUNTRIES#/2/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/2/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "ALB": {
+      "school": "SCH_SYS#/ALB",
+      "degree": "UNI_LEN#/ALB",
+      "labour": "LABOUR#/ALB",
+      "service": "COUNTRIES#/147/cs",
+      "servicePeriods": "ERA_CS#/ALB",
+      "destinations": "COUNTRIES#/147/mig",
+      "restricted": [
+        "ERA_CLOSED#/3"
+      ],
+      "economy": [
+        "ERA_ECON#/25",
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "ARE": {
+      "school": "SCH_SYS#/ARE",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/ARE",
+      "service": "COUNTRIES#/131/cs",
+      "servicePeriods": "ERA_CS#/ARE",
+      "destinations": "COUNTRIES#/131/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "ARG": {
+      "school": "SCH_SYS#/ARG",
+      "degree": "UNI_LEN#/ARG",
+      "labour": "LABOUR#/ARG",
+      "service": "COUNTRIES#/3/cs",
+      "servicePeriods": "ERA_CS#/ARG",
+      "destinations": "COUNTRIES#/3/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/2",
+        "ERA_ECON#/4",
+        "ERA_ECON#/17",
+        "ERA_ECON#/28",
+        "ERA_ECON#/40",
+        "ERA_ECON#/41"
+      ],
+      "housing": null
+    },
+    "ARM": {
+      "school": "SCH_SYS#/ARM",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/ARM",
+      "service": "COUNTRIES#/145/cs",
+      "servicePeriods": "ERA_CS#/ARM",
+      "destinations": "COUNTRIES#/145/mig",
+      "restricted": [
+        "ERA_CLOSED#/2"
+      ],
+      "economy": [
+        "ERA_ECON#/9",
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "AUS": {
+      "school": "SCH_SYS#/AUS",
+      "degree": "UNI_LEN#/AUS",
+      "labour": "LABOUR#/AUS",
+      "service": "COUNTRIES#/4/cs",
+      "servicePeriods": "ERA_CS#/AUS",
+      "destinations": "COUNTRIES#/4/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/AUS/1"
+    },
+    "AUT": {
+      "school": "SCH_SYS#/AUT",
+      "degree": "UNI_LEN#/AUT",
+      "labour": "LABOUR#/AUT",
+      "service": "COUNTRIES#/5/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/5/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/AUT/1"
+    },
+    "AZE": {
+      "school": "SCH_SYS#/AZE",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/AZE",
+      "service": "COUNTRIES#/6/cs",
+      "servicePeriods": "ERA_CS#/AZE",
+      "destinations": "COUNTRIES#/6/mig",
+      "restricted": [
+        "ERA_CLOSED#/0"
+      ],
+      "economy": [
+        "ERA_ECON#/9",
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "BDI": {
+      "school": "SCH_SYS#/BDI",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/BDI",
+      "service": "COUNTRIES#/16/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/16/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "BEL": {
+      "school": "SCH_SYS#/BEL",
+      "degree": "UNI_LEN#/BEL",
+      "labour": "LABOUR#/BEL",
+      "service": "COUNTRIES#/9/cs",
+      "servicePeriods": "ERA_CS#/BEL",
+      "destinations": "COUNTRIES#/9/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/BEL/1"
+    },
+    "BEN": {
+      "school": "SCH_SYS#/BEN",
+      "degree": "UNI_LEN#/BEN",
+      "labour": "LABOUR#/BEN",
+      "service": "COUNTRIES#/10/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/10/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "BFA": {
+      "school": "SCH_SYS#/BFA",
+      "degree": "UNI_LEN#/BFA",
+      "labour": "LABOUR#/BFA",
+      "service": "COUNTRIES#/15/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/15/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "BGD": {
+      "school": "SCH_SYS#/BGD",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/BGD",
+      "service": "COUNTRIES#/7/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/7/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "BGR": {
+      "school": "SCH_SYS#/BGR",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/BGR",
+      "service": "COUNTRIES#/14/cs",
+      "servicePeriods": "ERA_CS#/BGR",
+      "destinations": "COUNTRIES#/14/mig",
+      "restricted": [
+        "ERA_CLOSED#/1"
+      ],
+      "economy": [
+        "ERA_ECON#/12",
+        "ERA_ECON#/28"
+      ],
+      "housing": "HPI#/BGR/1"
+    },
+    "BHR": {
+      "school": "SCH_SYS#/BHR",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/BHR",
+      "service": "COUNTRIES#/152/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/152/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "BIH": {
+      "school": "SCH_SYS#/BIH",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/BIH",
+      "service": "COUNTRIES#/143/cs",
+      "servicePeriods": "ERA_CS#/BIH",
+      "destinations": "COUNTRIES#/143/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/13",
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "BLR": {
+      "school": "SCH_SYS#/BLR",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/BLR",
+      "service": "COUNTRIES#/8/cs",
+      "servicePeriods": "ERA_CS#/BLR",
+      "destinations": "COUNTRIES#/8/mig",
+      "restricted": [
+        "ERA_CLOSED#/0"
+      ],
+      "economy": [
+        "ERA_ECON#/9",
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "BOL": {
+      "school": "SCH_SYS#/BOL",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/BOL",
+      "service": "COUNTRIES#/11/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/11/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/2",
+        "ERA_ECON#/3",
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "BRA": {
+      "school": "SCH_SYS#/BRA",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/BRA",
+      "service": "COUNTRIES#/13/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/13/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/2",
+        "ERA_ECON#/5",
+        "ERA_ECON#/28",
+        "ERA_ECON#/35"
+      ],
+      "housing": "HPI#/BRA/1"
+    },
+    "BTN": {
+      "school": "SCH_SYS#/BTN",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/BTN",
+      "service": "COUNTRIES#/164/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/164/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "BWA": {
+      "school": "SCH_SYS#/BWA",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/BWA",
+      "service": "COUNTRIES#/12/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/12/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "CAF": {
+      "school": "SCH_SYS#/CAF",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/CAF",
+      "service": "COUNTRIES#/20/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/20/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "CAN": {
+      "school": "SCH_SYS#/CAN",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/CAN",
+      "service": "COUNTRIES#/19/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/19/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/CAN/1"
+    },
+    "CHE": {
+      "school": "SCH_SYS#/CHE",
+      "degree": "UNI_LEN#/CHE",
+      "labour": "LABOUR#/CHE",
+      "service": "COUNTRIES#/119/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/119/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/CHE/1"
+    },
+    "CHL": {
+      "school": "SCH_SYS#/CHL",
+      "degree": "UNI_LEN#/CHL",
+      "labour": "LABOUR#/CHL",
+      "service": "COUNTRIES#/22/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/22/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/2",
+        "ERA_ECON#/28"
+      ],
+      "housing": "HPI#/CHL/1"
+    },
+    "CHN": {
+      "school": "SCH_SYS#/CHN",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/CHN",
+      "service": "COUNTRIES#/23/cs",
+      "servicePeriods": "ERA_CS#/CHN",
+      "destinations": "COUNTRIES#/23/mig",
+      "restricted": [
+        "ERA_CLOSED#/4"
+      ],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": "HPI#/CHN/1"
+    },
+    "CIV": {
+      "school": "SCH_SYS#/CIV",
+      "degree": "UNI_LEN#/CIV",
+      "labour": "LABOUR#/CIV",
+      "service": "COUNTRIES#/27/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/27/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "CMR": {
+      "school": "SCH_SYS#/CMR",
+      "degree": "UNI_LEN#/CMR",
+      "labour": "LABOUR#/CMR",
+      "service": "COUNTRIES#/18/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/18/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "COD": {
+      "school": "SCH_SYS#/COD",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/COD",
+      "service": "COUNTRIES#/30/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/30/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "COG": {
+      "school": "SCH_SYS#/COG",
+      "degree": "UNI_LEN#/COG",
+      "labour": "LABOUR#/COG",
+      "service": "COUNTRIES#/25/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/25/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "COL": {
+      "school": "SCH_SYS#/COL",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/COL",
+      "service": "COUNTRIES#/24/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/24/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": "HPI#/COL/1"
+    },
+    "COM": {
+      "school": "SCH_SYS#/COM",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/COM",
+      "service": "COUNTRIES#/161/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/161/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "CPV": {
+      "school": "SCH_SYS#/CPV",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/CPV",
+      "service": "COUNTRIES#/171/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/171/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "CRI": {
+      "school": "SCH_SYS#/CRI",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/CRI",
+      "service": "COUNTRIES#/26/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/26/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "CUB": {
+      "school": "SCH_SYS#/CUB",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/CUB",
+      "service": "COUNTRIES#/28/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/28/mig",
+      "restricted": [
+        "ERA_CLOSED#/7"
+      ],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "CYP": {
+      "school": "SCH_SYS#/CYP",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/CYP",
+      "service": "COUNTRIES#/156/cs",
+      "servicePeriods": "ERA_CS#/CYP",
+      "destinations": "COUNTRIES#/156/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/20",
+        "ERA_ECON#/26",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": null
+    },
+    "CZE": {
+      "school": "SCH_SYS#/CZE",
+      "degree": "UNI_LEN#/CZE",
+      "labour": "LABOUR#/CZE",
+      "service": "COUNTRIES#/29/cs",
+      "servicePeriods": "ERA_CS#/CZE",
+      "destinations": "COUNTRIES#/29/mig",
+      "restricted": [
+        "ERA_CLOSED#/1"
+      ],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/12",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/CZE/1"
+    },
+    "DEU": {
+      "school": "SCH_SYS#/DEU",
+      "degree": "UNI_LEN#/DEU",
+      "labour": "LABOUR#/DEU",
+      "service": "COUNTRIES#/44/cs",
+      "servicePeriods": "ERA_CS#/DEU",
+      "destinations": "COUNTRIES#/44/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/DEU/1"
+    },
+    "DJI": {
+      "school": "SCH_SYS#/DJI",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/DJI",
+      "service": "COUNTRIES#/159/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/159/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "DNK": {
+      "school": "SCH_SYS#/DNK",
+      "degree": "UNI_LEN#/DNK",
+      "labour": "LABOUR#/DNK",
+      "service": "COUNTRIES#/31/cs",
+      "servicePeriods": "ERA_CS#/DNK",
+      "destinations": "COUNTRIES#/31/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/DNK/1"
+    },
+    "DOM": {
+      "school": "SCH_SYS#/DOM",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/DOM",
+      "service": "COUNTRIES#/32/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/32/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "DZA": {
+      "school": "SCH_SYS#/DZA",
+      "degree": "UNI_LEN#/DZA",
+      "labour": "LABOUR#/DZA",
+      "service": "COUNTRIES#/1/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/1/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "ECU": {
+      "school": "SCH_SYS#/ECU",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/ECU",
+      "service": "COUNTRIES#/33/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/33/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/2",
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "EGY": {
+      "school": "SCH_SYS#/EGY",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/EGY",
+      "service": "COUNTRIES#/34/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/34/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28",
+        "ERA_ECON#/42"
+      ],
+      "housing": null
+    },
+    "ERI": {
+      "school": "SCH_SYS#/ERI",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/ERI",
+      "service": "COUNTRIES#/37/cs",
+      "servicePeriods": "ERA_CS#/ERI",
+      "destinations": "COUNTRIES#/37/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "ESP": {
+      "school": "SCH_SYS#/ESP",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/ESP",
+      "service": "COUNTRIES#/115/cs",
+      "servicePeriods": "ERA_CS#/ESP",
+      "destinations": "COUNTRIES#/115/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/20",
+        "ERA_ECON#/21",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/ESP/1"
+    },
+    "EST": {
+      "school": "SCH_SYS#/EST",
+      "degree": "UNI_LEN#/EST",
+      "labour": "LABOUR#/EST",
+      "service": "COUNTRIES#/155/cs",
+      "servicePeriods": "ERA_CS#/EST",
+      "destinations": "COUNTRIES#/155/mig",
+      "restricted": [
+        "ERA_CLOSED#/2"
+      ],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/10",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/EST/1"
+    },
+    "ETH": {
+      "school": "SCH_SYS#/ETH",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/ETH",
+      "service": "COUNTRIES#/38/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/38/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "FIN": {
+      "school": "SCH_SYS#/FIN",
+      "degree": "UNI_LEN#/FIN",
+      "labour": "LABOUR#/FIN",
+      "service": "COUNTRIES#/39/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/39/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/FIN/1"
+    },
+    "FJI": {
+      "school": "SCH_SYS#/FJI",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/FJI",
+      "service": "COUNTRIES#/160/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/160/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "FRA": {
+      "school": "SCH_SYS#/FRA",
+      "degree": "UNI_LEN#/FRA",
+      "labour": "LABOUR#/FRA",
+      "service": "COUNTRIES#/40/cs",
+      "servicePeriods": "ERA_CS#/FRA",
+      "destinations": "COUNTRIES#/40/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/FRA/1"
+    },
+    "GAB": {
+      "school": "SCH_SYS#/GAB",
+      "degree": "UNI_LEN#/GAB",
+      "labour": "LABOUR#/GAB",
+      "service": "COUNTRIES#/41/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/41/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "GBR": {
+      "school": "SCH_SYS#/GBR",
+      "degree": "UNI_LEN#/GBR",
+      "labour": "LABOUR#/GBR",
+      "service": "COUNTRIES#/132/cs",
+      "servicePeriods": "ERA_CS#/GBR",
+      "destinations": "COUNTRIES#/132/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/GBR/1"
+    },
+    "GEO": {
+      "school": "SCH_SYS#/GEO",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/GEO",
+      "service": "COUNTRIES#/43/cs",
+      "servicePeriods": "ERA_CS#/GEO",
+      "destinations": "COUNTRIES#/43/mig",
+      "restricted": [
+        "ERA_CLOSED#/0"
+      ],
+      "economy": [
+        "ERA_ECON#/9",
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "GHA": {
+      "school": "SCH_SYS#/GHA",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/GHA",
+      "service": "COUNTRIES#/45/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/45/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28",
+        "ERA_ECON#/46"
+      ],
+      "housing": null
+    },
+    "GIN": {
+      "school": "SCH_SYS#/GIN",
+      "degree": "UNI_LEN#/GIN",
+      "labour": "LABOUR#/GIN",
+      "service": "COUNTRIES#/48/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/48/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "GMB": {
+      "school": "SCH_SYS#/GMB",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/GMB",
+      "service": "COUNTRIES#/42/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/42/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "GNB": {
+      "school": "SCH_SYS#/GNB",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/GNB",
+      "service": "COUNTRIES#/49/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/49/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "GNQ": {
+      "school": "SCH_SYS#/GNQ",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/GNQ",
+      "service": "COUNTRIES#/36/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/36/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "GRC": {
+      "school": "SCH_SYS#/GRC",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/GRC",
+      "service": "COUNTRIES#/46/cs",
+      "servicePeriods": "ERA_CS#/GRC",
+      "destinations": "COUNTRIES#/46/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/20",
+        "ERA_ECON#/21",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/GRC/1"
+    },
+    "GTM": {
+      "school": "SCH_SYS#/GTM",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/GTM",
+      "service": "COUNTRIES#/47/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/47/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "GUY": {
+      "school": "SCH_SYS#/GUY",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/GUY",
+      "service": "COUNTRIES#/162/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/162/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "HKG": {
+      "school": "SCH_SYS#/HKG",
+      "degree": "UNI_LEN#/HKG",
+      "labour": "LABOUR#/HKG",
+      "service": "COUNTRIES#/141/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/141/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/15",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": null
+    },
+    "HND": {
+      "school": "SCH_SYS#/HND",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/HND",
+      "service": "COUNTRIES#/51/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/51/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "HRV": {
+      "school": "SCH_SYS#/HRV",
+      "degree": "UNI_LEN#/HRV",
+      "labour": "LABOUR#/HRV",
+      "service": "COUNTRIES#/142/cs",
+      "servicePeriods": "ERA_CS#/HRV",
+      "destinations": "COUNTRIES#/142/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/13",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/HRV/1"
+    },
+    "HTI": {
+      "school": "SCH_SYS#/HTI",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/HTI",
+      "service": "COUNTRIES#/50/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/50/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "HUN": {
+      "school": "SCH_SYS#/HUN",
+      "degree": "UNI_LEN#/HUN",
+      "labour": "LABOUR#/HUN",
+      "service": "COUNTRIES#/52/cs",
+      "servicePeriods": "ERA_CS#/HUN",
+      "destinations": "COUNTRIES#/52/mig",
+      "restricted": [
+        "ERA_CLOSED#/1"
+      ],
+      "economy": [
+        "ERA_ECON#/12",
+        "ERA_ECON#/28"
+      ],
+      "housing": "HPI#/HUN/1"
+    },
+    "IDN": {
+      "school": "SCH_SYS#/IDN",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/IDN",
+      "service": "COUNTRIES#/54/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/54/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/16",
+        "ERA_ECON#/28"
+      ],
+      "housing": "HPI#/IDN/1"
+    },
+    "IND": {
+      "school": "SCH_SYS#/IND",
+      "degree": "UNI_LEN#/IND",
+      "labour": "LABOUR#/IND",
+      "service": "COUNTRIES#/53/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/53/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28",
+        "ERA_ECON#/47"
+      ],
+      "housing": "HPI#/IND/1"
+    },
+    "IRL": {
+      "school": "SCH_SYS#/IRL",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/IRL",
+      "service": "COUNTRIES#/57/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/57/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/20",
+        "ERA_ECON#/21",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/IRL/1"
+    },
+    "IRN": {
+      "school": "SCH_SYS#/IRN",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/IRN",
+      "service": "COUNTRIES#/55/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/55/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28",
+        "ERA_ECON#/48"
+      ],
+      "housing": null
+    },
+    "IRQ": {
+      "school": "SCH_SYS#/IRQ",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/IRQ",
+      "service": "COUNTRIES#/56/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/56/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "ISR": {
+      "school": "SCH_SYS#/ISR",
+      "degree": "UNI_LEN#/ISR",
+      "labour": "LABOUR#/ISR",
+      "service": "COUNTRIES#/58/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/58/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/ISR/1"
+    },
+    "ITA": {
+      "school": "SCH_SYS#/ITA",
+      "degree": "UNI_LEN#/ITA",
+      "labour": "LABOUR#/ITA",
+      "service": "COUNTRIES#/59/cs",
+      "servicePeriods": "ERA_CS#/ITA",
+      "destinations": "COUNTRIES#/59/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/20",
+        "ERA_ECON#/21",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/ITA/1"
+    },
+    "JAM": {
+      "school": "SCH_SYS#/JAM",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/JAM",
+      "service": "COUNTRIES#/60/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/60/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "JOR": {
+      "school": "SCH_SYS#/JOR",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/JOR",
+      "service": "COUNTRIES#/62/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/62/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "JPN": {
+      "school": "SCH_SYS#/JPN",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/JPN",
+      "service": "COUNTRIES#/61/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/61/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/7",
+        "ERA_ECON#/8",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/JPN/1"
+    },
+    "KAZ": {
+      "school": "SCH_SYS#/KAZ",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/KAZ",
+      "service": "COUNTRIES#/63/cs",
+      "servicePeriods": "ERA_CS#/KAZ",
+      "destinations": "COUNTRIES#/63/mig",
+      "restricted": [
+        "ERA_CLOSED#/0"
+      ],
+      "economy": [
+        "ERA_ECON#/9",
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "KEN": {
+      "school": "SCH_SYS#/KEN",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/KEN",
+      "service": "COUNTRIES#/64/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/64/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "KGZ": {
+      "school": "SCH_SYS#/KGZ",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/KGZ",
+      "service": "COUNTRIES#/66/cs",
+      "servicePeriods": "ERA_CS#/KGZ",
+      "destinations": "COUNTRIES#/66/mig",
+      "restricted": [
+        "ERA_CLOSED#/0"
+      ],
+      "economy": [
+        "ERA_ECON#/9",
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "KHM": {
+      "school": "SCH_SYS#/KHM",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/KHM",
+      "service": "COUNTRIES#/17/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/17/mig",
+      "restricted": [
+        "ERA_CLOSED#/6"
+      ],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "KOR": {
+      "school": "SCH_SYS#/KOR",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/KOR",
+      "service": "COUNTRIES#/113/cs",
+      "servicePeriods": "ERA_CS#/KOR",
+      "destinations": "COUNTRIES#/113/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/15",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/29",
+        "ERA_ECON#/30",
+        "ERA_ECON#/31",
+        "ERA_ECON#/32",
+        "ERA_ECON#/33",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/KOR/1"
+    },
+    "KWT": {
+      "school": "SCH_SYS#/KWT",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/KWT",
+      "service": "COUNTRIES#/65/cs",
+      "servicePeriods": "ERA_CS#/KWT",
+      "destinations": "COUNTRIES#/65/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "LAO": {
+      "school": "SCH_SYS#/LAO",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/LAO",
+      "service": "COUNTRIES#/67/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/67/mig",
+      "restricted": [
+        "ERA_CLOSED#/5"
+      ],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "LBN": {
+      "school": "SCH_SYS#/LBN",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/LBN",
+      "service": "COUNTRIES#/68/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/68/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/24",
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "LBR": {
+      "school": "SCH_SYS#/LBR",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/LBR",
+      "service": "COUNTRIES#/70/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/70/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "LBY": {
+      "school": "SCH_SYS#/LBY",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/LBY",
+      "service": "COUNTRIES#/71/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/71/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "LKA": {
+      "school": "SCH_SYS#/LKA",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/LKA",
+      "service": "COUNTRIES#/116/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/116/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/27",
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "LSO": {
+      "school": "SCH_SYS#/LSO",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/LSO",
+      "service": "COUNTRIES#/69/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/69/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "LTU": {
+      "school": "SCH_SYS#/LTU",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/LTU",
+      "service": "COUNTRIES#/146/cs",
+      "servicePeriods": "ERA_CS#/LTU",
+      "destinations": "COUNTRIES#/146/mig",
+      "restricted": [
+        "ERA_CLOSED#/2"
+      ],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/10",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/LTU/1"
+    },
+    "LUX": {
+      "school": "SCH_SYS#/LUX",
+      "degree": "UNI_LEN#/LUX",
+      "labour": "LABOUR#/LUX",
+      "service": "COUNTRIES#/166/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/166/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/LUX/1"
+    },
+    "LVA": {
+      "school": "SCH_SYS#/LVA",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/LVA",
+      "service": "COUNTRIES#/149/cs",
+      "servicePeriods": "ERA_CS#/LVA",
+      "destinations": "COUNTRIES#/149/mig",
+      "restricted": [
+        "ERA_CLOSED#/2"
+      ],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/10",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/LVA/1"
+    },
+    "MAC": {
+      "school": "SCH_SYS#/MAC",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/MAC",
+      "service": "COUNTRIES#/165/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/165/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": null
+    },
+    "MAR": {
+      "school": "SCH_SYS#/MAR",
+      "degree": "UNI_LEN#/MAR",
+      "labour": "LABOUR#/MAR",
+      "service": "COUNTRIES#/79/cs",
+      "servicePeriods": "ERA_CS#/MAR",
+      "destinations": "COUNTRIES#/79/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "MDA": {
+      "school": "SCH_SYS#/MDA",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/MDA",
+      "service": "COUNTRIES#/144/cs",
+      "servicePeriods": "ERA_CS#/MDA",
+      "destinations": "COUNTRIES#/144/mig",
+      "restricted": [
+        "ERA_CLOSED#/2"
+      ],
+      "economy": [
+        "ERA_ECON#/9",
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "MDG": {
+      "school": "SCH_SYS#/MDG",
+      "degree": "UNI_LEN#/MDG",
+      "labour": "LABOUR#/MDG",
+      "service": "COUNTRIES#/72/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/72/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "MDV": {
+      "school": "SCH_SYS#/MDV",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/MDV",
+      "service": "COUNTRIES#/170/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/170/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "MEX": {
+      "school": "SCH_SYS#/MEX",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/MEX",
+      "service": "COUNTRIES#/77/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/77/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/2",
+        "ERA_ECON#/14",
+        "ERA_ECON#/28"
+      ],
+      "housing": "HPI#/MEX/1"
+    },
+    "MKD": {
+      "school": "SCH_SYS#/MKD",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/MKD",
+      "service": "COUNTRIES#/150/cs",
+      "servicePeriods": "ERA_CS#/MKD",
+      "destinations": "COUNTRIES#/150/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/13",
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "MLI": {
+      "school": "SCH_SYS#/MLI",
+      "degree": "UNI_LEN#/MLI",
+      "labour": "LABOUR#/MLI",
+      "service": "COUNTRIES#/75/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/75/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "MLT": {
+      "school": "SCH_SYS#/MLT",
+      "degree": "UNI_LEN#/MLT",
+      "labour": "LABOUR#/MLT",
+      "service": "COUNTRIES#/169/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/169/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": null
+    },
+    "MMR": {
+      "school": "SCH_SYS#/MMR",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/MMR",
+      "service": "COUNTRIES#/81/cs",
+      "servicePeriods": "ERA_CS#/MMR",
+      "destinations": "COUNTRIES#/81/mig",
+      "restricted": [
+        "ERA_CLOSED#/8"
+      ],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "MNE": {
+      "school": "SCH_SYS#/MNE",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/MNE",
+      "service": "COUNTRIES#/167/cs",
+      "servicePeriods": "ERA_CS#/MNE",
+      "destinations": "COUNTRIES#/167/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/13",
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "MNG": {
+      "school": "SCH_SYS#/MNG",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/MNG",
+      "service": "COUNTRIES#/78/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/78/mig",
+      "restricted": [
+        "ERA_CLOSED#/1"
+      ],
+      "economy": [
+        "ERA_ECON#/12",
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "MOZ": {
+      "school": "SCH_SYS#/MOZ",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/MOZ",
+      "service": "COUNTRIES#/80/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/80/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "MRT": {
+      "school": "SCH_SYS#/MRT",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/MRT",
+      "service": "COUNTRIES#/76/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/76/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "MUS": {
+      "school": "SCH_SYS#/MUS",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/MUS",
+      "service": "COUNTRIES#/157/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/157/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "MWI": {
+      "school": "SCH_SYS#/MWI",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/MWI",
+      "service": "COUNTRIES#/73/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/73/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "MYS": {
+      "school": "SCH_SYS#/MYS",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/MYS",
+      "service": "COUNTRIES#/74/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/74/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/15",
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "NAM": {
+      "school": "SCH_SYS#/NAM",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/NAM",
+      "service": "COUNTRIES#/82/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/82/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "NER": {
+      "school": "SCH_SYS#/NER",
+      "degree": "UNI_LEN#/NER",
+      "labour": "LABOUR#/NER",
+      "service": "COUNTRIES#/87/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/87/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "NGA": {
+      "school": "SCH_SYS#/NGA",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/NGA",
+      "service": "COUNTRIES#/88/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/88/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28",
+        "ERA_ECON#/43",
+        "ERA_ECON#/44"
+      ],
+      "housing": null
+    },
+    "NIC": {
+      "school": "SCH_SYS#/NIC",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/NIC",
+      "service": "COUNTRIES#/86/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/86/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "NLD": {
+      "school": "SCH_SYS#/NLD",
+      "degree": "UNI_LEN#/NLD",
+      "labour": "LABOUR#/NLD",
+      "service": "COUNTRIES#/84/cs",
+      "servicePeriods": "ERA_CS#/NLD",
+      "destinations": "COUNTRIES#/84/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/NLD/1"
+    },
+    "NOR": {
+      "school": "SCH_SYS#/NOR",
+      "degree": "UNI_LEN#/NOR",
+      "labour": "LABOUR#/NOR",
+      "service": "COUNTRIES#/90/cs",
+      "servicePeriods": "ERA_CS#/NOR",
+      "destinations": "COUNTRIES#/90/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/NOR/1"
+    },
+    "NPL": {
+      "school": "SCH_SYS#/NPL",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/NPL",
+      "service": "COUNTRIES#/83/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/83/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "NZL": {
+      "school": "SCH_SYS#/NZL",
+      "degree": "UNI_LEN#/NZL",
+      "labour": "LABOUR#/NZL",
+      "service": "COUNTRIES#/85/cs",
+      "servicePeriods": "ERA_CS#/NZL",
+      "destinations": "COUNTRIES#/85/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/NZL/1"
+    },
+    "OMN": {
+      "school": "SCH_SYS#/OMN",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/OMN",
+      "service": "COUNTRIES#/91/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/91/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "PAK": {
+      "school": "SCH_SYS#/PAK",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/PAK",
+      "service": "COUNTRIES#/92/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/92/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28",
+        "ERA_ECON#/45"
+      ],
+      "housing": null
+    },
+    "PAN": {
+      "school": "SCH_SYS#/PAN",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/PAN",
+      "service": "COUNTRIES#/94/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/94/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "PER": {
+      "school": "SCH_SYS#/PER",
+      "degree": "UNI_LEN#/PER",
+      "labour": "LABOUR#/PER",
+      "service": "COUNTRIES#/97/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/97/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/2",
+        "ERA_ECON#/6",
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "PHL": {
+      "school": "SCH_SYS#/PHL",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/PHL",
+      "service": "COUNTRIES#/98/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/98/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/15",
+        "ERA_ECON#/28"
+      ],
+      "housing": "HPI_B#/PHL/1"
+    },
+    "PNG": {
+      "school": "SCH_SYS#/PNG",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/PNG",
+      "service": "COUNTRIES#/95/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/95/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "POL": {
+      "school": "SCH_SYS#/POL",
+      "degree": "UNI_LEN#/POL",
+      "labour": "LABOUR#/POL",
+      "service": "COUNTRIES#/99/cs",
+      "servicePeriods": "ERA_CS#/POL",
+      "destinations": "COUNTRIES#/99/mig",
+      "restricted": [
+        "ERA_CLOSED#/1"
+      ],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/12",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/POL/1"
+    },
+    "PRK": {
+      "school": "SCH_SYS#/PRK",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/PRK",
+      "service": "COUNTRIES#/89/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/89/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "PRT": {
+      "school": "SCH_SYS#/PRT",
+      "degree": "UNI_LEN#/PRT",
+      "labour": "LABOUR#/PRT",
+      "service": "COUNTRIES#/100/cs",
+      "servicePeriods": "ERA_CS#/PRT",
+      "destinations": "COUNTRIES#/100/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/20",
+        "ERA_ECON#/21",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/PRT/1"
+    },
+    "PRY": {
+      "school": "SCH_SYS#/PRY",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/PRY",
+      "service": "COUNTRIES#/96/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/96/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "PSE": {
+      "school": "SCH_SYS#/PSE",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/PSE",
+      "service": "COUNTRIES#/93/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/93/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "QAT": {
+      "school": "SCH_SYS#/QAT",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/QAT",
+      "service": "COUNTRIES#/101/cs",
+      "servicePeriods": "ERA_CS#/QAT",
+      "destinations": "COUNTRIES#/101/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "ROU": {
+      "school": "SCH_SYS#/ROU",
+      "degree": "UNI_LEN#/ROU",
+      "labour": "LABOUR#/ROU",
+      "service": "COUNTRIES#/102/cs",
+      "servicePeriods": "ERA_CS#/ROU",
+      "destinations": "COUNTRIES#/102/mig",
+      "restricted": [
+        "ERA_CLOSED#/1"
+      ],
+      "economy": [
+        "ERA_ECON#/12",
+        "ERA_ECON#/28"
+      ],
+      "housing": "HPI#/ROU/1"
+    },
+    "RUS": {
+      "school": "SCH_SYS#/RUS",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/RUS",
+      "service": "COUNTRIES#/103/cs",
+      "servicePeriods": "ERA_CS#/RUS",
+      "destinations": "COUNTRIES#/103/mig",
+      "restricted": [
+        "ERA_CLOSED#/0"
+      ],
+      "economy": [
+        "ERA_ECON#/9",
+        "ERA_ECON#/11",
+        "ERA_ECON#/28",
+        "ERA_ECON#/36",
+        "ERA_ECON#/37"
+      ],
+      "housing": "HPI#/RUS/1"
+    },
+    "RWA": {
+      "school": "SCH_SYS#/RWA",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/RWA",
+      "service": "COUNTRIES#/104/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/104/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "SAU": {
+      "school": "SCH_SYS#/SAU",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/SAU",
+      "service": "COUNTRIES#/105/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/105/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": "HPI#/SAU/1"
+    },
+    "SDN": {
+      "school": "SCH_SYS#/SDN",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/SDN",
+      "service": "COUNTRIES#/117/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/117/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "SEN": {
+      "school": "SCH_SYS#/SEN",
+      "degree": "UNI_LEN#/SEN",
+      "labour": "LABOUR#/SEN",
+      "service": "COUNTRIES#/106/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/106/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "SGP": {
+      "school": "SCH_SYS#/SGP",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/SGP",
+      "service": "COUNTRIES#/109/cs",
+      "servicePeriods": "ERA_CS#/SGP",
+      "destinations": "COUNTRIES#/109/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": null
+    },
+    "SLB": {
+      "school": "SCH_SYS#/SLB",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/SLB",
+      "service": "COUNTRIES#/163/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/163/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "SLE": {
+      "school": "SCH_SYS#/SLE",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/SLE",
+      "service": "COUNTRIES#/108/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/108/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "SLV": {
+      "school": "SCH_SYS#/SLV",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/SLV",
+      "service": "COUNTRIES#/35/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/35/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "SOM": {
+      "school": "SCH_SYS#/SOM",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/SOM",
+      "service": "COUNTRIES#/111/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/111/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "SRB": {
+      "school": "SCH_SYS#/SRB",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/SRB",
+      "service": "COUNTRIES#/107/cs",
+      "servicePeriods": "ERA_CS#/SRB",
+      "destinations": "COUNTRIES#/107/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/13",
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "SSD": {
+      "school": "SCH_SYS#/SSD",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/SSD",
+      "service": "COUNTRIES#/114/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/114/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "SUR": {
+      "school": "SCH_SYS#/SUR",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/SUR",
+      "service": "COUNTRIES#/168/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/168/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "SVK": {
+      "school": "SCH_SYS#/SVK",
+      "degree": "UNI_LEN#/SVK",
+      "labour": "LABOUR#/SVK",
+      "service": "COUNTRIES#/110/cs",
+      "servicePeriods": "ERA_CS#/SVK",
+      "destinations": "COUNTRIES#/110/mig",
+      "restricted": [
+        "ERA_CLOSED#/1"
+      ],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/12",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/SVK/1"
+    },
+    "SVN": {
+      "school": "SCH_SYS#/SVN",
+      "degree": "UNI_LEN#/SVN",
+      "labour": "LABOUR#/SVN",
+      "service": "COUNTRIES#/148/cs",
+      "servicePeriods": "ERA_CS#/SVN",
+      "destinations": "COUNTRIES#/148/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/12",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/SVN/1"
+    },
+    "SWE": {
+      "school": "SCH_SYS#/SWE",
+      "degree": "UNI_LEN#/SWE",
+      "labour": "LABOUR#/SWE",
+      "service": "COUNTRIES#/118/cs",
+      "servicePeriods": "ERA_CS#/SWE",
+      "destinations": "COUNTRIES#/118/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/SWE/1"
+    },
+    "SWZ": {
+      "school": "SCH_SYS#/SWZ",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/SWZ",
+      "service": "COUNTRIES#/158/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/158/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "SYR": {
+      "school": "SCH_SYS#/SYR",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/SYR",
+      "service": "COUNTRIES#/120/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/120/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "TCD": {
+      "school": "SCH_SYS#/TCD",
+      "degree": "UNI_LEN#/TCD",
+      "labour": "LABOUR#/TCD",
+      "service": "COUNTRIES#/21/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/21/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "TGO": {
+      "school": "SCH_SYS#/TGO",
+      "degree": "UNI_LEN#/TGO",
+      "labour": "LABOUR#/TGO",
+      "service": "COUNTRIES#/125/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/125/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "THA": {
+      "school": "SCH_SYS#/THA",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/THA",
+      "service": "COUNTRIES#/124/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/124/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/15",
+        "ERA_ECON#/28"
+      ],
+      "housing": "HPI_B#/THA/1"
+    },
+    "TJK": {
+      "school": "SCH_SYS#/TJK",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/TJK",
+      "service": "COUNTRIES#/122/cs",
+      "servicePeriods": "ERA_CS#/TJK",
+      "destinations": "COUNTRIES#/122/mig",
+      "restricted": [
+        "ERA_CLOSED#/0"
+      ],
+      "economy": [
+        "ERA_ECON#/9",
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "TKM": {
+      "school": "SCH_SYS#/TKM",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/TKM",
+      "service": "COUNTRIES#/128/cs",
+      "servicePeriods": "ERA_CS#/TKM",
+      "destinations": "COUNTRIES#/128/mig",
+      "restricted": [
+        "ERA_CLOSED#/0"
+      ],
+      "economy": [
+        "ERA_ECON#/9",
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "TLS": {
+      "school": "SCH_SYS#/TLS",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/TLS",
+      "service": "COUNTRIES#/154/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/154/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "TTO": {
+      "school": "SCH_SYS#/TTO",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/TTO",
+      "service": "COUNTRIES#/153/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/153/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "TUN": {
+      "school": "SCH_SYS#/TUN",
+      "degree": "UNI_LEN#/TUN",
+      "labour": "LABOUR#/TUN",
+      "service": "COUNTRIES#/126/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/126/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "TUR": {
+      "school": "SCH_SYS#/TUR",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/TUR",
+      "service": "COUNTRIES#/127/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/127/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/18",
+        "ERA_ECON#/28",
+        "ERA_ECON#/38",
+        "ERA_ECON#/39"
+      ],
+      "housing": "HPI#/TUR/1"
+    },
+    "TZA": {
+      "school": "SCH_SYS#/TZA",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/TZA",
+      "service": "COUNTRIES#/123/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/123/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "UGA": {
+      "school": "SCH_SYS#/UGA",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/UGA",
+      "service": "COUNTRIES#/129/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/129/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "UKR": {
+      "school": "SCH_SYS#/UKR",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/UKR",
+      "service": "COUNTRIES#/130/cs",
+      "servicePeriods": "ERA_CS#/UKR",
+      "destinations": "COUNTRIES#/130/mig",
+      "restricted": [
+        "ERA_CLOSED#/0"
+      ],
+      "economy": [
+        "ERA_ECON#/9",
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "URY": {
+      "school": "SCH_SYS#/URY",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/URY",
+      "service": "COUNTRIES#/134/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/134/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/2",
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "USA": {
+      "school": "SCH_SYS#/USA",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/USA",
+      "service": "COUNTRIES#/133/cs",
+      "servicePeriods": "ERA_CS#/USA",
+      "destinations": "COUNTRIES#/133/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/0",
+        "ERA_ECON#/1",
+        "ERA_ECON#/19",
+        "ERA_ECON#/20",
+        "ERA_ECON#/28",
+        "ERA_ECON#/34"
+      ],
+      "housing": "HPI#/USA/1"
+    },
+    "UZB": {
+      "school": "SCH_SYS#/UZB",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/UZB",
+      "service": "COUNTRIES#/135/cs",
+      "servicePeriods": "ERA_CS#/UZB",
+      "destinations": "COUNTRIES#/135/mig",
+      "restricted": [
+        "ERA_CLOSED#/0"
+      ],
+      "economy": [
+        "ERA_ECON#/9",
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "VEN": {
+      "school": "SCH_SYS#/VEN",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/VEN",
+      "service": "COUNTRIES#/136/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/136/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/2",
+        "ERA_ECON#/23",
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "VNM": {
+      "school": "SCH_SYS#/VNM",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/VNM",
+      "service": "COUNTRIES#/137/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/137/mig",
+      "restricted": [
+        "ERA_CLOSED#/5"
+      ],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "YEM": {
+      "school": "SCH_SYS#/YEM",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/YEM",
+      "service": "COUNTRIES#/138/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/138/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "ZAF": {
+      "school": "SCH_SYS#/ZAF",
+      "degree": "UNI_LEN#/ZAF",
+      "labour": "LABOUR#/ZAF",
+      "service": "COUNTRIES#/112/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/112/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": "HPI#/ZAF/1"
+    },
+    "ZMB": {
+      "school": "SCH_SYS#/ZMB",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/ZMB",
+      "service": "COUNTRIES#/139/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/139/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    },
+    "ZWE": {
+      "school": "SCH_SYS#/ZWE",
+      "degree": "game-default:4-years",
+      "labour": "LABOUR#/ZWE",
+      "service": "COUNTRIES#/140/cs",
+      "servicePeriods": null,
+      "destinations": "COUNTRIES#/140/mig",
+      "restricted": [],
+      "economy": [
+        "ERA_ECON#/22",
+        "ERA_ECON#/28"
+      ],
+      "housing": null
+    }
+  },
+  "coverage": {
+    "version": 1,
+    "collected": "2026-11-09",
+    "source": "1in8b.life 公开前端的本地逆向配置快照",
+    "sourceCountryCount": 172,
+    "covered": 170,
+    "missing": [
+      "ABW",
+      "ATG",
+      "BHS",
+      "BLZ",
+      "BRB",
+      "BRN",
+      "FSM",
+      "GRD",
+      "GUM",
+      "ISL",
+      "KIR",
+      "LCA",
+      "NCL",
+      "PRI",
+      "PYF",
+      "STP",
+      "SYC",
+      "TON",
+      "VCT",
+      "VIR",
+      "VUT",
+      "WSM"
+    ],
+    "excluded": [
+      "TWN",
+      "XKX"
+    ],
+    "missingLabourFields": [
+      {
+        "id": "MAC",
+        "field": "unemploymentRate"
+      },
+      {
+        "id": "MDV",
+        "field": "femaleParticipationRate"
+      },
+      {
+        "id": "SDN",
+        "field": "unemploymentRate"
+      },
+      {
+        "id": "SSD",
+        "field": "femaleParticipationRate"
+      }
+    ],
+    "note": "原站游戏配置，未对全部条目逐项官方核验；无记录项沿用本游戏明确的默认规则。WDI 人口、收入与健康指标不被覆盖。"
+  },
+  "notImported": [
+    "原站事件代码和文案",
+    "姓名／族群／宗教抽签",
+    "政治角色",
+    "原站死亡模型与历史死亡插值",
+    "原站人口／收入／健康截面"
+  ]
+}

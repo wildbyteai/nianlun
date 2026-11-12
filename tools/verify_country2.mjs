@@ -4,7 +4,7 @@ import { mkdirSync, writeFileSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { createHash } from 'node:crypto';
 
-const { NL } = load();
+const { NL } = load({eventMode:'legacy'});
 const report = { when: new Date().toISOString(), kind: '本地引擎模拟，非真机', checks: [], samples: [], examples: [] };
 function ok(name, pass, detail = '') {
   report.checks.push({ name, pass: !!pass, detail });

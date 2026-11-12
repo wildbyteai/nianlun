@@ -1,0 +1,13 @@
+{
+  "sources": [
+    {
+      "url": "https://data.bis.org/static/bulk/WS_SPP_csv_flat.zip",
+      "file": "data/bis/WS_SPP_csv_flat.20261112.zip",
+      "bytes": 305666,
+      "sha256": "cfe8bafc5daaaa796ea784ba4eefd8c00c161ce1795244496f9b8683a9026bfe",
+      "fetchedAt": "2026-11-12T14:27:58.050Z",
+      "metadata": "https://www.bis.org/statistics/pp_selected_documentation.pdf",
+      "unit": "2010=100的真实住宅价格指数；与名义指数分开；不是房租或绝对价格"
+    }
+  ]
+}

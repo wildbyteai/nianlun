@@ -1,0 +1,491 @@
+{
+  "source": {
+    "file": "data/bis/WS_SPP_csv_flat.20261112.zip",
+    "sha256": "cfe8bafc5daaaa796ea784ba4eefd8c00c161ce1795244496f9b8683a9026bfe"
+  },
+  "mappingSHA256": "c9acf3932785191a649cbc04c3056af4cf64a236e5c3b49d49be25ddb0440bce",
+  "rosterSHA256": "749512716ee4fe2c7cbbc4dc0cb68f98c366e4e70c9092361b3a006de03d472e",
+  "policy": "只取官方Q4实质指数与同比，不从缺测年份插值，不延长到2026；保守仅接入城市住房模型。住房覆盖不等于全国每种住宅，租金仍是游戏配置。",
+  "countries": {
+    "AUS": {
+      "indexFirst": 1970,
+      "indexLast": 2025,
+      "indexYears": 56,
+      "changeYears": 55
+    },
+    "AUT": {
+      "indexFirst": 1986,
+      "indexLast": 2025,
+      "indexYears": 40,
+      "changeYears": 39
+    },
+    "BEL": {
+      "indexFirst": 1970,
+      "indexLast": 2025,
+      "indexYears": 56,
+      "changeYears": 55
+    },
+    "BGR": {
+      "indexFirst": 1998,
+      "indexLast": 2025,
+      "indexYears": 28,
+      "changeYears": 27
+    },
+    "BRA": {
+      "indexFirst": 2001,
+      "indexLast": 2025,
+      "indexYears": 25,
+      "changeYears": 24
+    },
+    "CAN": {
+      "indexFirst": 1970,
+      "indexLast": 2025,
+      "indexYears": 56,
+      "changeYears": 55
+    },
+    "CHE": {
+      "indexFirst": 1970,
+      "indexLast": 2025,
+      "indexYears": 56,
+      "changeYears": 55
+    },
+    "CHL": {
+      "indexFirst": 2002,
+      "indexLast": 2025,
+      "indexYears": 24,
+      "changeYears": 23
+    },
+    "CHN": {
+      "indexFirst": 2005,
+      "indexLast": 2025,
+      "indexYears": 21,
+      "changeYears": 20
+    },
+    "COL": {
+      "indexFirst": 1988,
+      "indexLast": 2025,
+      "indexYears": 38,
+      "changeYears": 37
+    },
+    "CYP": {
+      "indexFirst": 2002,
+      "indexLast": 2025,
+      "indexYears": 24,
+      "changeYears": 23
+    },
+    "CZE": {
+      "indexFirst": 2008,
+      "indexLast": 2025,
+      "indexYears": 18,
+      "changeYears": 17
+    },
+    "DEU": {
+      "indexFirst": 1970,
+      "indexLast": 2025,
+      "indexYears": 56,
+      "changeYears": 55
+    },
+    "DNK": {
+      "indexFirst": 1970,
+      "indexLast": 2025,
+      "indexYears": 56,
+      "changeYears": 55
+    },
+    "ESP": {
+      "indexFirst": 1971,
+      "indexLast": 2025,
+      "indexYears": 55,
+      "changeYears": 54
+    },
+    "EST": {
+      "indexFirst": 2005,
+      "indexLast": 2025,
+      "indexYears": 21,
+      "changeYears": 20
+    },
+    "FIN": {
+      "indexFirst": 1970,
+      "indexLast": 2025,
+      "indexYears": 56,
+      "changeYears": 55
+    },
+    "FRA": {
+      "indexFirst": 1970,
+      "indexLast": 2025,
+      "indexYears": 56,
+      "changeYears": 55
+    },
+    "GBR": {
+      "indexFirst": 1968,
+      "indexLast": 2025,
+      "indexYears": 58,
+      "changeYears": 57
+    },
+    "GRC": {
+      "indexFirst": 1997,
+      "indexLast": 2025,
+      "indexYears": 29,
+      "changeYears": 28
+    },
+    "HKG": {
+      "indexFirst": 1979,
+      "indexLast": 2025,
+      "indexYears": 47,
+      "changeYears": 46
+    },
+    "HRV": {
+      "indexFirst": 1997,
+      "indexLast": 2025,
+      "indexYears": 29,
+      "changeYears": 28
+    },
+    "HUN": {
+      "indexFirst": 1992,
+      "indexLast": 2025,
+      "indexYears": 34,
+      "changeYears": 33
+    },
+    "IDN": {
+      "indexFirst": 2002,
+      "indexLast": 2025,
+      "indexYears": 24,
+      "changeYears": 23
+    },
+    "IND": {
+      "indexFirst": 2009,
+      "indexLast": 2025,
+      "indexYears": 17,
+      "changeYears": 16
+    },
+    "IRL": {
+      "indexFirst": 1970,
+      "indexLast": 2025,
+      "indexYears": 56,
+      "changeYears": 55
+    },
+    "ISL": {
+      "indexFirst": 1981,
+      "indexLast": 2025,
+      "indexYears": 45,
+      "changeYears": 44
+    },
+    "ISR": {
+      "indexFirst": 1994,
+      "indexLast": 2025,
+      "indexYears": 32,
+      "changeYears": 31
+    },
+    "ITA": {
+      "indexFirst": 1960,
+      "indexLast": 2025,
+      "indexYears": 66,
+      "changeYears": 66
+    },
+    "JPN": {
+      "indexFirst": 1960,
+      "indexLast": 2025,
+      "indexYears": 66,
+      "changeYears": 66
+    },
+    "KOR": {
+      "indexFirst": 1975,
+      "indexLast": 2025,
+      "indexYears": 51,
+      "changeYears": 50
+    },
+    "LTU": {
+      "indexFirst": 1998,
+      "indexLast": 2025,
+      "indexYears": 28,
+      "changeYears": 27
+    },
+    "LUX": {
+      "indexFirst": 2007,
+      "indexLast": 2025,
+      "indexYears": 19,
+      "changeYears": 18
+    },
+    "LVA": {
+      "indexFirst": 2006,
+      "indexLast": 2025,
+      "indexYears": 20,
+      "changeYears": 19
+    },
+    "MAR": {
+      "indexFirst": 2007,
+      "indexLast": 2025,
+      "indexYears": 19,
+      "changeYears": 18
+    },
+    "MEX": {
+      "indexFirst": 2005,
+      "indexLast": 2025,
+      "indexYears": 21,
+      "changeYears": 20
+    },
+    "MKD": {
+      "indexFirst": 2000,
+      "indexLast": 2025,
+      "indexYears": 26,
+      "changeYears": 25
+    },
+    "MLT": {
+      "indexFirst": 2005,
+      "indexLast": 2025,
+      "indexYears": 21,
+      "changeYears": 20
+    },
+    "MYS": {
+      "indexFirst": 1988,
+      "indexLast": 2025,
+      "indexYears": 38,
+      "changeYears": 37
+    },
+    "NLD": {
+      "indexFirst": 1970,
+      "indexLast": 2025,
+      "indexYears": 56,
+      "changeYears": 55
+    },
+    "NOR": {
+      "indexFirst": 1970,
+      "indexLast": 2025,
+      "indexYears": 56,
+      "changeYears": 33
+    },
+    "NZL": {
+      "indexFirst": 1962,
+      "indexLast": 2025,
+      "indexYears": 64,
+      "changeYears": 63
+    },
+    "PER": {
+      "indexFirst": 1998,
+      "indexLast": 2025,
+      "indexYears": 28,
+      "changeYears": 27
+    },
+    "PHL": {
+      "indexFirst": 2008,
+      "indexLast": 2025,
+      "indexYears": 18,
+      "changeYears": 17
+    },
+    "POL": {
+      "indexFirst": 2010,
+      "indexLast": 2025,
+      "indexYears": 16,
+      "changeYears": 15
+    },
+    "PRT": {
+      "indexFirst": 1988,
+      "indexLast": 2025,
+      "indexYears": 38,
+      "changeYears": 37
+    },
+    "ROU": {
+      "indexFirst": 2009,
+      "indexLast": 2025,
+      "indexYears": 17,
+      "changeYears": 16
+    },
+    "RUS": {
+      "indexFirst": 2001,
+      "indexLast": 2025,
+      "indexYears": 25,
+      "changeYears": 24
+    },
+    "SGP": {
+      "indexFirst": 1998,
+      "indexLast": 2025,
+      "indexYears": 28,
+      "changeYears": 27
+    },
+    "SRB": {
+      "indexFirst": 2000,
+      "indexLast": 2025,
+      "indexYears": 26,
+      "changeYears": 25
+    },
+    "SVK": {
+      "indexFirst": 2006,
+      "indexLast": 2025,
+      "indexYears": 20,
+      "changeYears": 19
+    },
+    "SVN": {
+      "indexFirst": 2007,
+      "indexLast": 2025,
+      "indexYears": 19,
+      "changeYears": 18
+    },
+    "SWE": {
+      "indexFirst": 1970,
+      "indexLast": 2025,
+      "indexYears": 56,
+      "changeYears": 55
+    },
+    "THA": {
+      "indexFirst": 1991,
+      "indexLast": 2025,
+      "indexYears": 35,
+      "changeYears": 34
+    },
+    "TUR": {
+      "indexFirst": 2010,
+      "indexLast": 2025,
+      "indexYears": 16,
+      "changeYears": 15
+    },
+    "USA": {
+      "indexFirst": 1970,
+      "indexLast": 2025,
+      "indexYears": 56,
+      "changeYears": 55
+    },
+    "ZAF": {
+      "indexFirst": 1966,
+      "indexLast": 2025,
+      "indexYears": 60,
+      "changeYears": 59
+    }
+  },
+  "missing": [
+    "ABW",
+    "AFG",
+    "AGO",
+    "ALB",
+    "ARE",
+    "ARG",
+    "ARM",
+    "ATG",
+    "AZE",
+    "BDI",
+    "BEN",
+    "BFA",
+    "BGD",
+    "BHR",
+    "BHS",
+    "BIH",
+    "BLR",
+    "BLZ",
+    "BOL",
+    "BRB",
+    "BRN",
+    "BTN",
+    "BWA",
+    "CAF",
+    "CIV",
+    "CMR",
+    "COD",
+    "COG",
+    "COM",
+    "CPV",
+    "CRI",
+    "CUB",
+    "DJI",
+    "DOM",
+    "DZA",
+    "ECU",
+    "EGY",
+    "ERI",
+    "ETH",
+    "FJI",
+    "FSM",
+    "GAB",
+    "GEO",
+    "GHA",
+    "GIN",
+    "GMB",
+    "GNB",
+    "GNQ",
+    "GRD",
+    "GTM",
+    "GUM",
+    "GUY",
+    "HND",
+    "HTI",
+    "IRN",
+    "IRQ",
+    "JAM",
+    "JOR",
+    "KAZ",
+    "KEN",
+    "KGZ",
+    "KHM",
+    "KIR",
+    "KWT",
+    "LAO",
+    "LBN",
+    "LBR",
+    "LBY",
+    "LCA",
+    "LKA",
+    "LSO",
+    "MAC",
+    "MDA",
+    "MDG",
+    "MDV",
+    "MLI",
+    "MMR",
+    "MNE",
+    "MNG",
+    "MOZ",
+    "MRT",
+    "MUS",
+    "MWI",
+    "NAM",
+    "NCL",
+    "NER",
+    "NGA",
+    "NIC",
+    "NPL",
+    "OMN",
+    "PAK",
+    "PAN",
+    "PNG",
+    "PRI",
+    "PRK",
+    "PRY",
+    "PSE",
+    "PYF",
+    "QAT",
+    "RWA",
+    "SAU",
+    "SDN",
+    "SEN",
+    "SLB",
+    "SLE",
+    "SLV",
+    "SOM",
+    "SSD",
+    "STP",
+    "SUR",
+    "SWZ",
+    "SYC",
+    "SYR",
+    "TCD",
+    "TGO",
+    "TJK",
+    "TKM",
+    "TLS",
+    "TON",
+    "TTO",
+    "TUN",
+    "TZA",
+    "UGA",
+    "UKR",
+    "URY",
+    "UZB",
+    "VCT",
+    "VEN",
+    "VIR",
+    "VNM",
+    "VUT",
+    "WSM",
+    "YEM",
+    "ZMB",
+    "ZWE"
+  ],
+  "generatedSHA256": "034122f9587aaf319d9603aca71817deb8d5817c055860e2155d2593455f25d4"
+}

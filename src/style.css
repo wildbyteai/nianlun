@@ -213,32 +213,36 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 #s-life { padding-bottom: calc(var(--safe-b) + 10px); }
 .life-head { flex: none; display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; }
 .life-head .where { font-size: 14px; color: var(--ink2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
-.life-head .where b { font-family: var(--serif); font-size: 18px; color: var(--ink); margin-right: 4px; }
+.life-head .where b { font-family: var(--serif); font-size: 16px; font-weight: 500; color: var(--ink); margin-right: 4px; }
 .life-head .age { font-family: var(--serif); white-space: nowrap; text-align: right; line-height: 1; }
-.life-head .age b { font-size: 40px; font-variant-numeric: tabular-nums; display: inline-block; }
+.life-head .age b { font-size: 34px; font-weight: 400; font-variant-numeric: tabular-nums; display: inline-block; }
 .life-head .age b.pop { animation: agePop .42s ease-out; }
 @keyframes agePop { 0% { transform: translateY(6px) scale(.86); opacity: .35; } 60% { transform: translateY(0) scale(1.06); opacity: 1; } 100% { transform: none; } }
 .life-head .age span { font-size: 15px; margin-left: 2px; }
 .life-head .age small { display: block; font-size: 12px; color: var(--ink3); font-family: var(--sans); margin-top: 3px; }
 .life-tools { flex: none; display: flex; align-items: center; gap: 6px; margin: 4px 0 2px; }
 .life-tools .sp { flex: 1; }
+.life-tools .chip-btn { height: 32px; padding: 0 10px; font-size: 12px; border: 1px solid rgba(33,28,23,.18); }
+#life-stats .stat .ic { width: 14px; height: 14px; }
+#life-stats .stat .lb { font-size: 12px; font-weight: 400; }
+#life-stats .stat .lb i { font-size: 11px; color: var(--ink2); }
+#life-stats .stat .track { height: 3px; border: 0; background: rgba(33,28,23,.12); }
 .era-strip {
-  /* 一条 43px 左右（11px 字 × 2 行 + 上下内边距 + 分隔线）。原来固定 74px
-     只露出 1.7 条，往上翻几乎看不到往年；改成整数三条的高度 129px，
-     常见手机上都刚好三条完整记录，不会在顶部留半行。 */
-  flex: none; margin: 3px 0 1px; padding: 0 8px; height: 129px;
+  /* 两条可回看的年代记录；淡色细线把背景资料留在年轮后面。 */
+  flex: none; margin: 3px 0 1px; padding: 0 8px; height: 86px;
   overflow-y: auto; overscroll-behavior: contain; touch-action: pan-y;
   scrollbar-width: none; -webkit-overflow-scrolling: touch;
   -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 13px);
   mask-image: linear-gradient(to bottom, transparent 0, #000 13px);
-  border-left: 3px solid var(--zhe); background: rgba(184, 138, 62, .09);
+  border-left: 1px solid rgba(184,138,62,.5); background: transparent;
   font-size: 11px; line-height: 1.5; color: var(--ink2);
 }
 .era-strip::-webkit-scrollbar { display: none; }
 .era-item { padding: 4px 0; border-top: 1px solid rgba(33, 28, 23, .1); opacity: .5; transition: opacity .35s ease; }
 .era-item:first-child { border-top: 0; }
 .era-item.now { opacity: 1; }
-.era-item .l1 { display: block; font-family: var(--serif); font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+.era-item[role=button] { cursor: pointer; }
+.era-item .l1 { display: block; font-family: var(--serif); font-weight: 400; color: var(--ink2); font-variant-numeric: tabular-nums; }
 .era-item .l1 b { color: var(--zhu); margin-right: 3px; }
 .era-item .l2 { display: block; color: var(--ink2); margin-top: 1px; }
 .era-item .l2 i { font-style: normal; color: var(--zhe); font-weight: 700; margin-right: 3px; }
@@ -284,6 +288,50 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .choices button.r::after { content: "→"; color: var(--ink3); font-family: var(--sans); }
 .choices button:active { background: var(--ink); color: var(--paper); }
 .choices.solo button.l::before { content: none; }
+.card.source-card, .card.source-note { padding: 12px 16px 8px; border: 1px solid rgba(33,28,23,.22); background: rgba(232,220,194,.38); box-shadow: 2px 2px 0 rgba(33,28,23,.1); }
+.card.source-card { cursor: auto; touch-action: pan-y; gap: 8px; }
+.source-card > .meta { display: none; }
+.source-card .meta, .source-hint { flex: none; }
+.source-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; touch-action: pan-y; padding-right: 4px; }
+.source-card .q { margin: 0 0 5px; font-size: 17px; font-weight: 500; line-height: 1.5; }
+.source-choices { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); align-content: start; gap: 8px; }
+.source-choices button { min-height: 56px; flex-direction: column; align-items: flex-start; justify-content: center; text-align: left; padding: 8px 10px; gap: 2px; width: 100%; font-family: var(--serif); font-weight: 400; line-height: 1.5; font-size: 14px; border: 1px solid rgba(33,28,23,.22); border-radius: 0; background: rgba(241,232,212,.55); box-shadow: none; }
+.source-choices button:focus-visible { outline-offset: -4px; }
+.source-choices button:active { background: var(--ink); color: var(--paper); }
+.source-choices button:active small { color: var(--paper); }
+.source-choices small { font-family: var(--sans); font-size: 12px; font-weight: 400; line-height: 1.4; color: var(--ink2); }
+.source-choices.is-list { grid-template-columns: 1fr; }
+.source-choices.is-list button { min-height: 48px; flex-direction: row; justify-content: space-between; align-items: center; gap: 12px; }
+.source-choices.is-list small { max-width: 47%; text-align: right; }
+.source-hint { font-size: 11px; color: var(--ink3); }
+.source-body textarea { resize: vertical; width: 100%; min-height: 56px; margin-bottom: 7px; border: 1px solid var(--ink3); padding: 7px; background: var(--paper); color: var(--ink); user-select: text; font: inherit; font-size: 16px; }
+.source-footer { flex: none; display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 32px; }
+.scene-hero { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.scene-art { width: 108px; height: 84px; flex: none; }
+.scene-art svg { display: block; width: 100%; height: 100%; }
+.scene-words { min-width: 0; flex: 1; }
+.scene-prompt { margin: 0; color: var(--ink2); font-size: 12px; line-height: 1.65; }
+.decision-hero { flex: none; min-height: 80px; margin: 0; }
+.source-note { gap: 4px; }
+.source-note .event-hero { flex: 1; min-height: 0; }
+.event-hero .scene-art { width: 112px; height: 92px; }
+.scene-title { margin: 0 0 7px; font-family: var(--serif); font-size: 17px; line-height: 1.5; font-weight: 500; }
+.scene-summary { margin: 0; font-family: var(--serif); font-size: 14px; line-height: 1.75; }
+.scene-deltas { flex: none; margin-top: 0; padding-top: 0; min-height: 20px; }
+.scene-deltas .delta { display: inline-flex; align-items: center; gap: 3px; }
+.scene-deltas svg { width: 13px; height: 13px; }
+.scene-actions { flex: none; display: flex; align-items: center; justify-content: space-between; min-height: 36px; gap: 10px; }
+.scene-more { color: var(--ink3); font-size: 12px; min-height: 36px; text-decoration: underline; text-decoration-color: rgba(33,28,23,.28); text-underline-offset: 4px; }
+.scene-next { font-family: var(--serif); font-size: 14px; font-weight: 400; min-height: 36px; padding: 3px 14px; border: 1px solid rgba(33,28,23,.3); background: var(--paper); }
+.scene-original { font-family: var(--serif); line-height: 1.85; white-space: pre-line; }
+.scene-full-choices { display: grid; gap: 10px; margin: 18px 0; }
+.scene-full-choices button { text-align: left; border: 1px solid var(--ink); background: var(--paper); padding: 10px 12px; min-height: 44px; }
+.scene-full-choices p { margin: 0; }
+.scene-full-choices .scene-option-note { color: var(--ink2); font-size: 13px; margin-top: 5px; }
+.life-whisper { flex: none; width: 100%; min-height: 21px; text-align: left; color: var(--ink3); font-size: 11px; line-height: 1.45; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; visibility: hidden; }
+.life-whisper.has-note { visibility: visible; }
+.disc-wrap canvas { position: absolute; inset: 0; }
+.history-badge { color: var(--zhu); white-space: nowrap; }
 .swipe-tag {
   position: absolute; top: 14px; padding: 2px 10px; font-family: var(--serif); font-weight: 800; font-size: 18px;
   border: 2.5px solid var(--zhu); color: var(--zhu); background: var(--paper); opacity: 0; pointer-events: none; max-width: 60%;
@@ -484,7 +532,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .tight .birth-cta .btn { min-height: 46px; font-size: 17px; }
 
 /* 人生页：这一屏是真的没余地了，只能把「这一年」小条和卡片让出高度 */
-.tight .era-strip { height: 108px; }
+.tight .era-strip { height: 86px; }
 .tight .disc-wrap { min-height: 132px; }
 .tight .life-cards { height: 178px; }
 
@@ -518,7 +566,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .tight .birth-cta .btn { min-height: 46px; font-size: 17px; }
 
 /* 人生页：这一屏是真的没余地了，只能把「这一年」小条和卡片让出高度 */
-.tight .era-strip { height: 108px; }
+.tight .era-strip { height: 86px; }
 .tight .disc-wrap { min-height: 132px; }
 .tight .life-cards { height: 178px; }
 
@@ -571,3 +619,11 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   .card.in, .stamp.hit, .ages .row .b, .disc-wrap.pulse canvas, .life-head .age b.pop, .era-item.now.flash { animation: none !important; }
   .stamp.hit { opacity: .95; transform: rotate(-8deg); }
 }
+
+/* 决策时让纸卡展开，画布保持在余下空间；canvas 不参与容器的固有高度计算。 */
+#s-life.is-choosing .era-strip { height: 86px; }
+#s-life.is-choosing .disc-wrap { min-height: 104px; }
+#s-life.is-choosing .life-cards { height: min(308px, calc(var(--avh) * .36)); }
+#s-life.is-choosing.tight .life-cards { height: min(288px, calc(var(--avh) * .36)); }
+#s-life.is-choosing.tighter .life-cards { height: min(260px, calc(var(--avh) * .34)); }
+#s-life.is-choosing.tight .era-strip { height: 72px; }

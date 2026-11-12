@@ -22,12 +22,7 @@
       this.seed = null;
       this.pin = null;
       this.birthAcc = 0;
-      this.bps = NL.info.sumBirths / 31557600;
-      const cs = NL.countries;
-      this.cum = [];
-      let s = 0;
-      for (const c of cs) { s += c.b; this.cum.push(s); }
-      this.sumB = s;
+      this.setYear(NL.birthYear);
       this.seedImg = null;
       if (art && art.seed) {
         const img = new Image();
@@ -35,6 +30,11 @@
         img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(art.seed);
       }
       this.resize();
+    }
+    setYear(year){
+      const weights=root.NL_TL.birthCounts(year);this.cum=[];let sum=0;
+      for(const c of this.NL.countries){sum+=weights[c.id]||0;this.cum.push(sum);}
+      this.sumB=sum;this.bps=sum/31557600;this.birthAcc=0;
     }
     resize() {
       const r = this.cv.getBoundingClientRect();

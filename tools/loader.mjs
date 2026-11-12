@@ -14,7 +14,9 @@ export const FILES = [
   'src/events_country.js',
   'src/events_country2.js',
   'src/events_profiles.js',
-  'src/gen/history.js', 'src/era.js', 'src/timeline.js',
+  'src/gen/history.js', 'src/gen/housing.js', 'src/era.js', 'src/timeline.js', 'src/living.js',
+  'src/gen/source-history.js', 'src/gen/source-native.js', 'src/history_impacts.js', 'src/source_bridge.js',
+  'src/presentation.js',
 ];
 
 export function load(opts) {
@@ -24,8 +26,10 @@ export function load(opts) {
     Object, Array, String, Number, Set, Map, parseFloat, isFinite,
   };
   ctx.globalThis = ctx;
+  ctx.NL_EVENT_MODE=o.eventMode || 'source';
   vm.createContext(ctx);
-  const files = o.files || FILES;
+  const legacyExtra=new Set(['src/gen/source-history.js','src/gen/source-native.js','src/history_impacts.js','src/source_bridge.js']);
+  const files = o.files || (o.eventMode==='legacy'?FILES.filter(f=>!legacyExtra.has(f)):FILES);
   for (const f of files) vm.runInContext(readFileSync(resolve(ROOT, f), 'utf8'), ctx, { filename: f });
   if (o.data !== false) ctx.NL.init(ctx.window.NL_DATA);
   return ctx;

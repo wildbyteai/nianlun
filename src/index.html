@@ -45,8 +45,8 @@
       <button class="icon-btn snd" data-act="sound" aria-label="声音"></button>
     </div>
     <div class="drop-head">
-      <h2>此刻，每秒约有 <span id="bps">4</span> 个婴儿出生</h2>
-      <p>今天到现在，大约已经出生了 <span class="ticker" id="ticker">0</span> 人。<br>地图上每闪一下，就是一个。</p>
+      <h2><span id="drop-year">1990</span> 年，每秒约有 <span id="bps">4</span> 个婴儿出生</h2>
+      <p>这段时间，世界上约有 <span class="ticker" id="ticker">0</span> 个孩子出生。<br>地图上每闪一下，就是一个。</p>
     </div>
     <div class="map-wrap">
       <canvas id="map"></canvas>
@@ -94,6 +94,7 @@
     <div class="era-strip" id="life-era" aria-live="off" aria-label="这一年的世界线，可上下滚动回看往年"></div>
     <div class="disc-wrap" id="life-disc-wrap"><canvas id="life-disc" aria-label="年轮"></canvas></div>
     <div class="stats" id="life-stats"></div>
+    <button type="button" class="life-whisper" id="life-whisper" data-act="log" aria-label="查看这一年的完整经历"></button>
     <div class="life-cards" id="cards"></div>
   </section>
 
@@ -167,6 +168,12 @@
   <div class="body"><p class="log-legend" id="log-legend"></p><ul class="log-list" id="log-list"></ul></div>
 </div>
 
+<div class="sheet" id="sh-scene" role="dialog" aria-modal="true" aria-label="事情经过">
+  <div class="grab"></div>
+  <h3><span id="scene-title">事情经过</span><button class="icon-btn" data-act="close" aria-label="关闭详情"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></h3>
+  <div class="body" id="scene-body"></div>
+</div>
+
 <div class="sheet" id="sh-forest" role="dialog" aria-label="我的林子">
   <div class="grab"></div>
   <h3>我的林子 <button class="icon-btn" data-act="close" aria-label="关闭"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></h3>
@@ -198,8 +205,15 @@
 <script src="events_country2.js"></script>
 <script src="events_profiles.js"></script>
 <script src="gen/history.js"></script>
+<script src="gen/housing.js"></script>
 <script src="era.js"></script>
 <script src="timeline.js"></script>
+<script src="living.js"></script>
+<script src="gen/source-history.js"></script>
+<script src="gen/source-native.js"></script>
+<script src="history_impacts.js"></script>
+<script src="source_bridge.js"></script>
+<script src="presentation.js"></script>
 <script src="svgdraw.js"></script>
 <script src="rings.js"></script>
 <script src="map.js"></script>

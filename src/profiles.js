@@ -33,10 +33,12 @@
       .sort((a, b) => b.layoffMultiplier - a.layoffMultiplier)[0] || null;
   }
   function labour(c) {
+    if(root.NL_EVENT_MODE!=='legacy'&&c.un!=null)return c.un;
     const p = get(c);
     return p?.labour.unemploymentRate ?? 6; // 资料缺项的明确游戏默认值，见覆盖清单。
   }
   function role(S, c) {
+    if(c.nlEmployment){const w=c.nlEmployment;return NL.util.wpick({farm:w.agr*(S.urban?.1:1.8)*(S.edu>=3?.05:1),factory:w.ind*(S.edu>=3?.2:1),office:w.ser*(S.edu>=3?1:S.edu>=2?.2:.05),trade:w.ser*(S.edu>=3?.2:1)});}
     if (S.edu >= 3) return chance(0.78) ? 'office' : 'trade';
     if (!S.urban && chance(c.agr / 100 + 0.15)) return 'farm';
     return chance(0.55) ? 'factory' : 'trade';
@@ -65,6 +67,8 @@
   }
   function destinations(c) { return (get(c)?.destinations || []).map(id => NL.cby[id]); }
   function housing(S, c) {
+    const official=root.NL_EVENT_MODE!=='legacy'&&root.NL_LIVING?root.NL_LIVING.housing(c.id,year(S),S.urban):null;
+    if(official?.change!=null)return {year:year(S),realChange:official.change,source:'BIS'};
     const p = get(c);
     if (!p || p.housingUrbanOnly && !S.urban || year(S) > NL.NOW_YEAR) return null;
     return p.housing.find(r => r.year === year(S)) || null;

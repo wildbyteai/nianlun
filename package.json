@@ -1,14 +1,29 @@
 {
   "name": "nianlun-life-h5",
-  "version": "0.1.0",
   "private": true,
+  "version": "0.1.0",
   "type": "module",
   "description": "Nianlun (Tree Rings): an offline HTML5 life-simulation game",
   "scripts": {
+    "fetch-history": "node tools/fetch_history.mjs",
+    "history": "node tools/build_history.mjs",
     "build": "node tools/build.mjs",
-    "test": "node tools/verify_world.mjs 600",
-    "test:sim": "node tools/verify_sim.mjs 3000",
+    "source": "node tools/build_source_native.mjs",
+    "source-history": "node tools/build_source_history.mjs",
+    "fetch-living": "node tools/fetch_living_history.mjs",
+    "housing": "python3 tools/build_housing.py",
+    "test:living": "node tools/verify_living_foundation.mjs",
+    "test": "node tools/verify_living_foundation.mjs && node tools/verify_source_events.mjs && node tools/verify_sim.mjs 3000",
+    "test:source": "node tools/verify_source_events.mjs",
+    "test:legacy": "node tools/verify_sim.mjs 3000",
+    "test:world": "node tools/verify_world.mjs 600",
     "test:country": "node tools/verify_country.mjs",
-    "test:country2": "node tools/verify_country2.mjs"
+    "test:country2": "node tools/verify_country2.mjs",
+    "test:browser": "node tools/browser_check.mjs",
+    "fetch-event-history": "node tools/fetch_event_history.mjs",
+    "test:sim": "node tools/verify_sim.mjs 3000"
+  },
+  "devDependencies": {
+    "acorn": "^8.15.0"
   }
 }
